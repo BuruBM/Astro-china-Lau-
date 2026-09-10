@@ -4,163 +4,114 @@
 
   :root {
     --outer: #E5DEC9;
-    --bg: #F2ECD9;
-    --surface: #FBF8EE;
-    --surface-2: #EFE6CC;
-    --text: #2A2318;
-    --text-dim: #746B54;
-    --gold: #9C7A2E;
-    --gold-strong: #7C5F22;
-    --gold-soft: #EADFB8;
-    --vermillion: #A8341F;
-    --vermillion-soft: #F2DCD3;
-    --jade: #3E6D5C;
-    --jade-soft: #DCEAE2;
-    --border: rgba(42,35,24,0.16);
-    --border-strong: rgba(42,35,24,0.30);
+    --bg: #F2ECD9; --surface: #FBF8EE; --surface-2: #EFE6CC;
+    --text: #2A2318; --text-dim: #746B54;
+    --gold: #9C7A2E; --gold-strong: #7C5F22; --gold-soft: #EADFB8;
+    --vermillion: #A8341F; --vermillion-soft: #F2DCD3;
+    --jade: #3E6D5C; --jade-soft: #DCEAE2;
+    --border: rgba(42,35,24,0.16); --border-strong: rgba(42,35,24,0.30);
     --el-madera: #3E6D5C; --el-fuego: #A8341F; --el-tierra: #8A6F3F; --el-metal: #6C7378; --el-agua: #2C4359;
+    --an-rata:#3B4A66; --an-buey:#8A6234; --an-tigre:#4C7247; --an-conejo:#4F8A73; --an-dragon:#B08B2A;
+    --an-serpiente:#8E3B4A; --an-caballo:#A8341F; --an-cabra:#A05A2C; --an-mono:#6C7378; --an-gallo:#8C7A32;
+    --an-perro:#6B4A34; --an-cerdo:#2C5A5C;
+    --ink: #241F17; --ink-text: #F3ECD9; --ink-dim: #B7AE94; --ink-border: rgba(243,236,217,0.16);
     --shadow: 0 1px 2px rgba(42,35,24,0.06), 0 10px 26px rgba(42,35,24,0.10);
     --nav-h: 62px;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --outer: #0B0C12;
-      --bg: #14151F; --surface: #1D1F2E; --surface-2: #262940;
+      --outer: #0B0C12; --bg: #14151F; --surface: #1D1F2E; --surface-2: #262940;
       --text: #EDE6D3; --text-dim: #A6A08C;
       --gold: #D4A954; --gold-strong: #E8C989; --gold-soft: #3A3220;
       --vermillion: #E07A5F; --vermillion-soft: #3A2420;
       --jade: #8FC4AE; --jade-soft: #1F332C;
       --border: rgba(237,230,211,0.14); --border-strong: rgba(237,230,211,0.26);
       --el-madera: #8FC4AE; --el-fuego: #E07A5F; --el-tierra: #C7A56A; --el-metal: #A9B0B4; --el-agua: #7FA3C4;
+      --an-rata:#8CA0C4; --an-buey:#C9A06B; --an-tigre:#8FBF87; --an-conejo:#8FD1B4; --an-dragon:#E4C468;
+      --an-serpiente:#D98B98; --an-caballo:#E07A5F; --an-cabra:#D99A63; --an-mono:#A9B0B4; --an-gallo:#C7B96A;
+      --an-perro:#B08868; --an-cerdo:#6FB0AF;
+      --ink: #0E0D10; --ink-text: #F3ECD9; --ink-dim: #A6A08C; --ink-border: rgba(243,236,217,0.14);
       --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.4);
     }
   }
   :root[data-theme="dark"] {
-    --outer: #0B0C12;
-    --bg: #14151F; --surface: #1D1F2E; --surface-2: #262940;
+    --outer: #0B0C12; --bg: #14151F; --surface: #1D1F2E; --surface-2: #262940;
     --text: #EDE6D3; --text-dim: #A6A08C;
     --gold: #D4A954; --gold-strong: #E8C989; --gold-soft: #3A3220;
     --vermillion: #E07A5F; --vermillion-soft: #3A2420;
     --jade: #8FC4AE; --jade-soft: #1F332C;
     --border: rgba(237,230,211,0.14); --border-strong: rgba(237,230,211,0.26);
     --el-madera: #8FC4AE; --el-fuego: #E07A5F; --el-tierra: #C7A56A; --el-metal: #A9B0B4; --el-agua: #7FA3C4;
+    --an-rata:#8CA0C4; --an-buey:#C9A06B; --an-tigre:#8FBF87; --an-conejo:#8FD1B4; --an-dragon:#E4C468;
+    --an-serpiente:#D98B98; --an-caballo:#E07A5F; --an-cabra:#D99A63; --an-mono:#A9B0B4; --an-gallo:#C7B96A;
+    --an-perro:#B08868; --an-cerdo:#6FB0AF;
+    --ink: #0E0D10; --ink-text: #F3ECD9; --ink-dim: #A6A08C; --ink-border: rgba(243,236,217,0.14);
     --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.4);
   }
 
   * { box-sizing: border-box; }
   html, body { height: 100%; }
-  body {
-    margin: 0;
-    background: var(--outer);
-    color: var(--text);
-    font-family: 'IBM Plex Sans', -apple-system, Arial, sans-serif;
-  }
+  body { margin: 0; background: var(--outer); color: var(--text); font-family: 'IBM Plex Sans', -apple-system, Arial, sans-serif; }
   .num { font-variant-numeric: tabular-nums; }
   ::selection { background: var(--gold-soft); }
 
-  /* ---------------- App frame ---------------- */
-  .app-frame {
-    max-width: 460px;
-    margin: 0 auto;
-    height: 100vh;
-    height: 100dvh;
-    background: var(--bg);
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
-  }
+  .app-frame { max-width: 460px; margin: 0 auto; height: 100vh; height: 100dvh; background: var(--bg); display: flex; flex-direction: column; box-shadow: var(--shadow); position: relative; overflow: hidden; }
 
-  /* ---------------- Header ---------------- */
-  header.app-header {
-    flex: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 14px 16px;
-    border-bottom: 1px solid var(--border);
-    background: var(--bg);
-    position: sticky; top: 0; z-index: 5;
-  }
-  .app-header .brand { display: flex; align-items: baseline; gap: 7px; }
-  .app-header .brand .hz { color: var(--vermillion); font-family: 'Noto Serif', serif; font-size: 19px; }
-  .app-header h1 { font-family: 'Noto Serif', serif; font-weight: 700; font-size: 17px; margin: 0; }
-  .bell-btn {
-    width: 34px; height: 34px; border-radius: 50%;
-    border: 1px solid var(--border); background: var(--surface-2);
-    color: var(--text); display: flex; align-items: center; justify-content: center;
-    cursor: pointer; font-size: 15px; position: relative; flex: none;
-  }
-  .bell-btn .dot { position: absolute; top: 6px; right: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--vermillion); }
+  header.app-header { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 5; }
+  .app-header .brand { display: flex; align-items: flex-start; gap: 7px; min-width: 0; }
+  .app-header .brand .hz { color: var(--vermillion); font-family: 'Noto Serif', serif; font-size: 20px; flex: none; line-height: 1.2; }
+  .app-header h1 { font-family: 'Noto Serif', serif; font-weight: 700; font-size: 14.5px; line-height: 1.25; margin: 0; text-wrap: balance; }
+  .bell-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15px; position: relative; flex: none; }
+  .bell-btn .dot { position: absolute; top: 6px; right: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--vermillion); display: none; }
 
-  /* ---------------- Screens ---------------- */
   main.screen-area { flex: 1 1 auto; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-bottom: 24px; }
   .screen { display: none; padding: 18px 16px 8px; }
   .screen.active { display: block; }
-  .eyebrow {
-    font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--gold-strong); margin: 0 0 4px;
-  }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-strong); margin: 0 0 4px; }
   .screen-title { font-family: 'Noto Serif', serif; font-weight: 700; font-size: 21px; margin: 0 0 4px; text-wrap: balance; }
   .screen-sub { font-size: 13px; color: var(--text-dim); margin: 0 0 18px; line-height: 1.5; }
-
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
-
   label.field-label { display: block; font-size: 11.5px; font-weight: 600; color: var(--text-dim); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
-  input[type="date"], input[type="text"] {
+  input[type="date"], input[type="text"], input[type="time"], input[type="number"], textarea {
     font: inherit; font-family: 'IBM Plex Mono', monospace; background: var(--surface-2); border: 1px solid var(--border);
     color: var(--text); border-radius: 6px; padding: 9px 11px; width: 100%;
   }
-  input:focus-visible, button:focus-visible, .nav-btn:focus-visible, .month-tile:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  textarea { font-family: 'IBM Plex Sans', sans-serif; resize: vertical; min-height: 56px; }
+  input:focus-visible, button:focus-visible, textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   .example-tag { font-size: 10.5px; color: var(--vermillion); font-family: 'IBM Plex Mono', monospace; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .field-help { font-size: 10.5px; color: var(--text-dim); margin-top: 4px; }
 
   .btn { font: inherit; font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 13px; background: var(--text); color: var(--bg); border: none; padding: 9px 16px; border-radius: 6px; cursor: pointer; }
   .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
-  .btn.sm { padding: 6px 12px; font-size: 12px; }
 
-  .back-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-  .back-btn { background: none; border: none; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; cursor: pointer; padding: 4px 0; display: flex; align-items: center; gap: 4px; }
-  .back-btn:hover { color: var(--text); }
-
-  /* ---------------- Home screen ---------------- */
-  .home-hero {
-    display: flex; gap: 14px; align-items: center; padding: 16px;
-    background: linear-gradient(135deg, var(--surface-2), var(--surface));
-    border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px;
-  }
-  .seal { flex: none; width: 56px; height: 56px; border-radius: 9px; background: var(--vermillion); color: #fff;
-    display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif', serif; font-size: 25px;
-    box-shadow: var(--shadow); transform: rotate(-3deg); }
+  .home-hero { display: flex; gap: 14px; align-items: center; padding: 16px; background: linear-gradient(135deg, var(--surface-2), var(--surface)); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px; cursor: pointer; }
+  .seal { flex: none; width: 56px; height: 56px; border-radius: 9px; background: var(--vermillion); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif', serif; font-size: 25px; box-shadow: var(--shadow); transform: rotate(-3deg); }
   .home-hero h2 { font-family: 'Noto Serif', serif; font-size: 18px; margin: 0 0 2px; }
   .home-hero p { margin: 0; color: var(--text-dim); font-size: 12.5px; }
-
-  .today-card { border-left: 3px solid var(--gold); }
+  .today-card { border-left: 3px solid var(--gold); cursor: pointer; }
   .today-card .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
   .today-card h3 { font-family: 'Noto Serif', serif; font-size: 15.5px; margin: 0 0 3px; }
   .today-card p { margin: 0; font-size: 12px; color: var(--text-dim); }
-
   .quick-links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .quick-link { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: left; cursor: pointer; font-family: inherit; color: var(--text); }
   .quick-link .ic { font-size: 18px; margin-bottom: 6px; display: block; }
   .quick-link b { display: block; font-size: 13px; margin-bottom: 2px; }
   .quick-link span { font-size: 11px; color: var(--text-dim); }
 
-  /* ---------------- Chips / stars (shared) ---------------- */
   .chip { display: inline-flex; align-items: center; gap: 5px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); }
   .chip.favorable { background: var(--jade-soft); color: var(--jade); border-color: transparent; }
   .chip.desfavorable { background: var(--vermillion-soft); color: var(--vermillion); border-color: transparent; }
   .chip.neutra { color: var(--text-dim); }
   .chip.ambivalente, .chip.mixta { background: var(--gold-soft); color: var(--gold-strong); border-color: transparent; }
+  .chip.dios { background: var(--gold-soft); color: var(--gold-strong); border-color: transparent; }
   .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
   .rel-desc { font-size: 12.5px; color: var(--text-dim); margin: 8px 0 0; line-height: 1.55; }
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin: 0 0 8px; font-weight: 600; }
 
-  .stars-panel h4, .reco-panel h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin: 0 0 8px; font-weight: 600; }
   .stars-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
   .stars-col-title { font-size: 11.5px; font-weight: 600; margin-bottom: 6px; }
-  .stars-col-title.fav { color: var(--jade); }
-  .stars-col-title.desf { color: var(--vermillion); }
+  .stars-col-title.fav { color: var(--jade); } .stars-col-title.desf { color: var(--vermillion); }
   .star-item { font-size: 12px; padding: 5px 0; border-bottom: 1px dashed var(--border); }
   .star-item b { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; }
   .star-item span { color: var(--text-dim); font-size: 11px; }
@@ -181,17 +132,14 @@
   .reco-task .oid { color: var(--gold-strong); margin-right: 5px; }
   .reco-note { font-size: 11px; color: var(--text-dim); margin-top: 9px; font-style: italic; }
 
-  /* ---------------- Hexagram symbol ---------------- */
   .hex-stamp { flex: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border: 2px solid var(--vermillion); border-radius: 8px; padding: 7px 9px; transform: rotate(1.5deg); }
   .hex-stamp .k { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.08em; color: var(--vermillion); opacity: .85; }
   .hex-lines-row { display: flex; gap: 6px; align-items: flex-end; }
   .hex-lines { display: flex; flex-direction: column; gap: 2.5px; }
-  .hex-line { width: 30px; height: 3px; display: flex; gap: 4px; }
+  .hex-line { width: 28px; height: 3px; display: flex; gap: 4px; }
   .hex-line .seg { background: var(--vermillion); height: 100%; border-radius: 1px; }
-  .hex-line .seg.full { width: 100%; }
-  .hex-line .seg.half { width: 47%; }
+  .hex-line .seg.full { width: 100%; } .hex-line .seg.half { width: 47%; }
 
-  /* ---------------- Objetivos ---------------- */
   .obj-block { border: 1px solid var(--border); border-radius: 10px; padding: 14px 14px 4px; margin-bottom: 14px; background: var(--surface); }
   .obj-title-row { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
   .obj-badge { font-family: 'Noto Serif', serif; font-weight: 700; font-size: 14px; width: 25px; height: 25px; border-radius: 50%; background: var(--gold-soft); color: var(--gold-strong); display: flex; align-items: center; justify-content: center; flex: none; }
@@ -202,101 +150,106 @@
   .task-input:hover, .task-input:focus { border-bottom-color: var(--border-strong); }
   .task-id { color: var(--text-dim); font-size: 10px; margin-right: 4px; }
 
-  /* ---------------- Calendario grid ---------------- */
-  .month-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .month-tile {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px;
-    cursor: pointer; text-align: left; font-family: inherit; color: var(--text); position: relative; overflow: hidden;
-  }
-  .month-tile::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--tile-el, var(--el-tierra)); }
-  .month-tile .mnum { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-dim); }
-  .month-tile .manimal { font-family: 'Noto Serif', serif; font-size: 15px; margin: 3px 0 2px; }
-  .month-tile .mel { font-size: 10.5px; color: var(--text-dim); margin-bottom: 8px; }
-  .month-tile .mdot-row { display: flex; align-items: center; gap: 5px; }
-  .mdot { width: 8px; height: 8px; border-radius: 50%; }
-  .mdot.favorable { background: var(--jade); } .mdot.desfavorable { background: var(--vermillion); } .mdot.neutra, .mdot.mixta { background: var(--el-metal); }
-  .month-tile .mdot-label { font-size: 10px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; }
-  .month-tile.today-tile { border-color: var(--gold); }
-  .month-tile.today-tile::after { content: 'HOY'; position: absolute; top: 8px; right: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; color: var(--gold-strong); letter-spacing: .06em; }
+  /* Calendario: tira de meses + detalle inline */
+  .month-strip { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 18px; }
+  .month-tab { flex: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-align: center; padding: 8px 4px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text-dim); cursor: pointer; min-width: 58px; line-height: 1.3; border-top: 3px solid var(--tab-el, var(--border)); }
+  .month-tab b { display: block; font-size: 12px; color: var(--text); }
+  .month-tab.active { background: var(--surface); border-color: var(--border-strong); color: var(--text); box-shadow: var(--shadow); }
+  .month-tab .doty { display: block; font-size: 8.5px; color: var(--gold-strong); margin-top: 1px; }
 
   .month-head { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
   .month-head h3 { font-family: 'Noto Serif', serif; font-size: 18px; margin: 0 0 3px; }
   .month-head .dates { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim); }
   .month-tema { font-family: 'Noto Serif', serif; font-style: italic; font-size: 13.5px; line-height: 1.6; color: var(--text-dim); border-left: 2px solid var(--border-strong); padding-left: 12px; margin: 0 0 18px; }
-  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin: 0 0 8px; font-weight: 600; }
 
-  /* ---------------- Bottom nav ---------------- */
+  /* Reflexion */
+  .reflex-q { margin-bottom: 12px; }
+  .reflex-q label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 5px; }
+  .reflex-saved { font-size: 10.5px; color: var(--jade); font-family: 'IBM Plex Mono', monospace; margin-top: 8px; opacity: 0; transition: opacity .2s; }
+  .reflex-saved.show { opacity: 1; }
+
+  /* BaZi table */
+  .bazi-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+  .bazi-table th { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-dim); font-weight: 500; padding: 6px 4px; text-align: center; border-bottom: 1px solid var(--border-strong); }
+  .bazi-table td { text-align: center; padding: 8px 4px; border-bottom: 1px solid var(--border); font-size: 12px; }
+  .bazi-table td.lbl { text-align: left; font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .03em; }
+  .bazi-table .stem { font-weight: 700; font-family: 'Noto Serif', serif; font-size: 13.5px; }
+  .bazi-table .maestro { background: var(--gold-soft); }
+  .bazi-caveat { font-size: 10.5px; color: var(--text-dim); margin-top: 8px; line-height: 1.5; font-style: italic; }
+
   nav.bottom-nav { flex: none; display: flex; border-top: 1px solid var(--border); background: var(--surface); height: var(--nav-h); }
   .nav-btn { flex: 1; background: none; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--text-dim); font-family: 'IBM Plex Sans', sans-serif; font-size: 10.5px; cursor: pointer; }
   .nav-btn .ic { font-size: 18px; line-height: 1; }
   .nav-btn.active { color: var(--gold-strong); }
 
-  /* ---------------- Modal / notification popup ---------------- */
-  .modal-overlay { position: fixed; inset: 0; background: rgba(20,17,10,0.45); display: none; align-items: flex-end; justify-content: center; z-index: 50; padding: 0; }
+  /* Popup centrado, ficha oscura fija (siempre contrasta) */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(10,9,6,0.55); display: none; align-items: center; justify-content: center; z-index: 50; padding: 20px; }
   .modal-overlay.open { display: flex; }
-  .modal-card { width: 100%; max-width: 460px; background: var(--surface); border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 20px 18px calc(18px + env(safe-area-inset-bottom, 0px)); box-shadow: var(--shadow); animation: slideUp .22s ease-out; }
-  @keyframes slideUp { from { transform: translateY(14px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-  .modal-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-strong); margin: 0 0 6px; }
-  .modal-title { font-family: 'Noto Serif', serif; font-size: 17px; font-weight: 700; margin: 0 0 8px; }
-  .modal-text { font-size: 13px; color: var(--text-dim); line-height: 1.55; margin: 0 0 16px; }
+  .modal-card { width: 100%; max-width: 380px; background: var(--ink); color: var(--ink-text); border-radius: 16px; padding: 22px 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.45); animation: popIn .18s ease-out; position: relative; border: 1px solid var(--ink-border); }
+  @keyframes popIn { from { transform: scale(.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .modal-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-strong); margin: 0 0 8px; }
+  .modal-title { font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 700; margin: 0 0 9px; color: var(--ink-text); }
+  .modal-text { font-size: 13px; color: var(--ink-dim); line-height: 1.55; margin: 0 0 18px; }
   .modal-actions { display: flex; gap: 8px; }
-  .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; color: var(--text-dim); font-size: 18px; cursor: pointer; }
-  .modal-card { position: relative; }
-
-  .draft-note { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--vermillion); border-radius: 4px; padding: 10px 12px; font-size: 11.5px; line-height: 1.5; color: var(--text-dim); margin-bottom: 14px; }
-  .draft-note b { color: var(--text); }
+  .modal-actions .btn { background: var(--gold); color: var(--ink); }
+  .modal-actions .btn.ghost { background: transparent; color: var(--ink-text); border: 1px solid var(--ink-border); }
+  .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; color: var(--ink-dim); font-size: 18px; cursor: pointer; }
 
   @media (max-width: 460px) { .app-frame { box-shadow: none; } }
 </style>
 
 <div class="app-frame">
   <header class="app-header">
-    <div class="brand"><span class="hz">馬</span><h1>Almanaque 2026</h1></div>
+    <div class="brand"><span class="hz">馬</span><h1>2026: Año del Caballo de Fuego</h1></div>
     <button class="bell-btn" id="bellBtn" aria-label="Notificaciones">🔔<span class="dot" id="bellDot"></span></button>
   </header>
 
   <main class="screen-area" id="screenArea">
 
-    <!-- ============ HOME ============ -->
     <section class="screen active" data-screen="inicio">
       <p class="eyebrow">Inicio</p>
-      <h2 class="screen-title">Hola 👋</h2>
-      <p class="screen-sub">Este es un borrador de concepto, no la app final. Explorá las pantallas desde el menú de abajo.</p>
-
+      <h2 class="screen-title" id="homeGreeting">Hola 👋</h2>
+      <p class="screen-sub">Borrador de concepto, no la app final. Explorá las pantallas desde el menú de abajo.</p>
       <div class="home-hero" id="homeHero"></div>
-
       <div class="card today-card" id="todayCard"></div>
-
       <p class="section-label" style="margin-top:18px;">Accesos rápidos</p>
       <div class="quick-links">
         <button class="quick-link" data-goto="presagio"><span class="ic">🧧</span><b>Presagio 2026</b><span>Tu relación con el año</span></button>
         <button class="quick-link" data-goto="objetivos"><span class="ic">🎯</span><b>Objetivos</b><span>Método 1×3×3</span></button>
         <button class="quick-link" data-goto="calendario"><span class="ic">🗓️</span><b>Calendario</b><span>Energía mes a mes</span></button>
-        <button class="quick-link" data-goto="config"><span class="ic">🪪</span><b>Mis datos</b><span>Fecha de nacimiento</span></button>
+        <button class="quick-link" data-goto="config"><span class="ic">🪪</span><b>Mis datos</b><span>Carta natal</span></button>
       </div>
     </section>
 
-    <!-- ============ CONFIG (fecha de nacimiento) ============ -->
     <section class="screen" data-screen="config">
       <p class="eyebrow">Mis datos</p>
-      <h2 class="screen-title">Tu fecha de nacimiento</h2>
-      <p class="screen-sub">Con esto calculamos el animal de tu año. La carta natal completa (4 pilares) todavía no está implementada en este borrador.</p>
+      <h2 class="screen-title">Tu carta natal</h2>
+      <p class="screen-sub">Con esto calculamos tu animal, tu elemento maestro y los dioses de cada mes. Corrección de hora solar según longitud del lugar de nacimiento.</p>
       <div class="card">
-        <label class="field-label" for="birthdate">Fecha de nacimiento <span class="example-tag">(ejemplo cargado)</span></label>
-        <input type="date" id="birthdate" value="1990-07-15">
+        <label class="field-label" for="nombre">Nombre <span class="example-tag">(ejemplo)</span></label>
+        <input type="text" id="nombre" value="Sofía">
+        <div class="field-row">
+          <div><label class="field-label" for="birthdate">Fecha de nacimiento</label><input type="date" id="birthdate" value="1990-07-15"></div>
+          <div><label class="field-label" for="birthtime">Hora de nacimiento</label><input type="time" id="birthtime" value="12:00"></div>
+        </div>
+        <div class="field-row">
+          <div><label class="field-label" for="longitud">Longitud del lugar</label><input type="number" id="longitud" value="-58.4" step="0.1"></div>
+          <div><label class="field-label" for="tzoffset">Huso horario (UTC)</label><input type="number" id="tzoffset" value="-3" step="1"></div>
+        </div>
+        <p class="field-help">Ejemplo actual: Florida, Buenos Aires (≈ -58.4°, UTC-3). Cambiá estos valores para probar con otra fecha/lugar.</p>
       </div>
       <div class="card" id="animalResult" style="display:flex; gap:14px; align-items:center;"></div>
+      <div class="card" id="baziCard"></div>
     </section>
 
-    <!-- ============ PRESAGIO ANUAL ============ -->
     <section class="screen" data-screen="presagio">
       <p class="eyebrow">Presagio 2026</p>
       <h2 class="screen-title">Tu año Caballo de Fuego</h2>
-      <p class="screen-sub">Relación de tu animal con el año, y las estrellas simbólicas que trae.</p>
+      <p class="screen-sub">Dios del año, relación de tu animal y las estrellas simbólicas.</p>
       <div id="anualPanel"></div>
+      <div class="card" id="reflexAnual"></div>
     </section>
 
-    <!-- ============ OBJETIVOS ============ -->
     <section class="screen" data-screen="objetivos">
       <p class="eyebrow">Objetivos 2026</p>
       <h2 class="screen-title">Método 1×3×3</h2>
@@ -305,20 +258,13 @@
       <button class="btn ghost" id="resetObjetivos">Restaurar ejemplo</button>
     </section>
 
-    <!-- ============ CALENDARIO (grilla) ============ -->
     <section class="screen" data-screen="calendario">
       <p class="eyebrow">Calendario mensual</p>
-      <h2 class="screen-title">Elegí un mes</h2>
-      <p class="screen-sub">El punto de color anticipa si el mes es favorable para tu animal.</p>
-      <div class="month-grid" id="monthGrid"></div>
-    </section>
-
-    <!-- ============ MES (detalle, drill-in) ============ -->
-    <section class="screen" data-screen="mes">
-      <div class="back-row">
-        <button class="back-btn" id="backToCal">‹ Calendario</button>
-      </div>
+      <h2 class="screen-title" id="calTitle">Mes en curso</h2>
+      <p class="screen-sub">Deslizá para ver otros meses. El color de cada pestaña es el color del animal de ese mes.</p>
+      <div class="month-strip" id="monthStrip"></div>
       <div id="monthPanel"></div>
+      <div class="card" id="reflexMensual" style="margin-top:14px;"></div>
     </section>
 
   </main>
@@ -353,38 +299,129 @@
   "use strict";
   var DATA = JSON.parse(document.getElementById('app-data').textContent);
 
-  // ---------- Hexagramas: lineas de abajo hacia arriba (1=yang,0=yin) ----------
-  // Verificadas por composicion de trigramas + contraste cruzado con fuentes externas.
-  var HEXAGRAMS = {
-    "1":  [1,1,1,1,1,1],
-    "15": [0,0,1,0,0,0],
-    "20": [0,0,0,0,1,1],
-    "26": [1,1,1,0,0,1],
-    "31": [0,0,1,1,1,0],
-    "36": [1,0,1,0,0,0],
-    "40": [0,1,0,1,0,0],
-    "42": [1,0,0,0,1,1],
-    "43": [1,1,1,1,1,0],
-    "44": [0,1,1,1,1,1],
-    "48": [0,1,1,0,1,0],
-    "49": [1,0,1,1,1,0],
-    "61": [1,1,0,0,1,1]
-  };
+  var STEMS = ["Jia","Yi","Bing","Ding","Wu","Ji","Geng","Xin","Ren","Gui"];
+  var STEM_ES = ["Madera Yang","Madera Yin","Fuego Yang","Fuego Yin","Tierra Yang","Tierra Yin","Metal Yang","Metal Yin","Agua Yang","Agua Yin"];
+  var STEM_HANZI = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
+  var BRANCHES = DATA.animalOrden; // Rata..Cerdo, idx 0-11
+  var BRANCH_HANZI = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
 
+  var ELEMENT_VAR = { "Madera": "var(--el-madera)", "Fuego": "var(--el-fuego)", "Tierra": "var(--el-tierra)", "Metal": "var(--el-metal)", "Agua": "var(--el-agua)" };
+  var ANIMAL_VAR = { Rata:"var(--an-rata)", Buey:"var(--an-buey)", Tigre:"var(--an-tigre)", Conejo:"var(--an-conejo)", Dragon:"var(--an-dragon)",
+    Serpiente:"var(--an-serpiente)", Caballo:"var(--an-caballo)", Cabra:"var(--an-cabra)", Mono:"var(--an-mono)", Gallo:"var(--an-gallo)",
+    Perro:"var(--an-perro)", Cerdo:"var(--an-cerdo)" };
+
+  // ---------- Hexagramas ----------
+  var HEXAGRAMS = { "1":[1,1,1,1,1,1], "15":[0,0,1,0,0,0], "20":[0,0,0,0,1,1], "26":[1,1,1,0,0,1], "31":[0,0,1,1,1,0],
+    "36":[1,0,1,0,0,0], "40":[0,1,0,1,0,0], "42":[1,0,0,0,1,1], "43":[1,1,1,1,1,0], "44":[0,1,1,1,1,1],
+    "48":[0,1,1,0,1,0], "49":[1,0,1,1,1,0], "61":[1,1,0,0,1,1] };
   function hexLinesHtml(hexNum) {
-    var lines = HEXAGRAMS[hexNum];
-    if (!lines) return '';
-    var topToBottom = lines.slice().reverse();
-    return '<div class="hex-lines">' + topToBottom.map(function (l) {
-      if (l === 1) return '<div class="hex-line"><div class="seg full"></div></div>';
-      return '<div class="hex-line"><div class="seg half"></div><div class="seg half"></div></div>';
+    var lines = HEXAGRAMS[hexNum]; if (!lines) return '';
+    return '<div class="hex-lines">' + lines.slice().reverse().map(function (l) {
+      return l === 1 ? '<div class="hex-line"><div class="seg full"></div></div>' : '<div class="hex-line"><div class="seg half"></div><div class="seg half"></div></div>';
     }).join('') + '</div>';
   }
-
   function hexStampHtml(hexStr) {
-    var nums = hexStr.split('/');
-    return '<div class="hex-stamp"><span class="k">HEX. ' + hexStr + '</span>' +
-      '<div class="hex-lines-row">' + nums.map(hexLinesHtml).join('') + '</div></div>';
+    return '<div class="hex-stamp"><span class="k">HEX. ' + hexStr + '</span><div class="hex-lines-row">' + hexStr.split('/').map(hexLinesHtml).join('') + '</div></div>';
+  }
+
+  // ---------- Motor BaZi (4 pilares) ----------
+  // Referencia verificada: dia 2019-01-27 = Jia-Zi (indice sexagenario 0).
+  var DAY_REF = new Date(Date.UTC(2019, 0, 27));
+  var YEAR_REF = 2020; // Geng-Zi (Metal Yang Rata)
+  var YIN_MONTH_STEM_FROM_YEAR = { 0:2, 5:2, 1:4, 6:4, 2:6, 7:6, 3:8, 8:8, 4:0, 9:0 }; // Jia/Ji->Bing, Yi/Geng->Wu, Bing/Xin->Geng, Ding/Ren->Ren, Wu/Gui->Jia
+  var ZI_HOUR_STEM_FROM_DAY = { 0:0, 5:0, 1:2, 6:2, 2:4, 7:4, 3:6, 8:6, 4:8, 9:8 }; // Jia/Ji->Jia, Yi/Geng->Bing, Bing/Xin->Wu, Ding/Ren->Geng, Wu/Gui->Ren
+
+  function pillar(stemIdx, branchIdx) {
+    return { stemIdx: stemIdx, branchIdx: branchIdx, stem: STEMS[stemIdx], stemEs: STEM_ES[stemIdx], stemHanzi: STEM_HANZI[stemIdx],
+      branch: BRANCHES[branchIdx], branchHanzi: BRANCH_HANZI[branchIdx],
+      label: BRANCHES[branchIdx] + ' de ' + STEM_ES[stemIdx].split(' ')[0] + ' ' + STEM_ES[stemIdx].split(' ')[1] };
+  }
+
+  function calcularCartaNatal(fechaStr, horaStr, longitud, tzOffset) {
+    var d = new Date(fechaStr + "T00:00:00Z");
+    var y = d.getUTCFullYear(), m = d.getUTCMonth() + 1, day = d.getUTCDate();
+
+    // --- Pilar del año (corte ~4 feb) ---
+    var animYear = (m < 2 || (m === 2 && day < 4)) ? y - 1 : y;
+    var yStemIdx = (((animYear - YEAR_REF) % 10) + 10) % 10; yStemIdx = (yStemIdx + 6) % 10;
+    var yBranchIdx = (((animYear - YEAR_REF) % 12) + 12) % 12;
+    var yearPillar = pillar(yStemIdx, yBranchIdx);
+
+    // --- Pilar del mes (segun cortes jieqi aproximados, en orden cronologico dentro del anio) ---
+    var cutsOrdered = [
+      {m:1,d:5,b:1},{m:2,d:4,b:2},{m:3,d:5,b:3},{m:4,d:4,b:4},{m:5,d:5,b:5},{m:6,d:5,b:6},
+      {m:7,d:7,b:7},{m:8,d:7,b:8},{m:9,d:7,b:9},{m:10,d:8,b:10},{m:11,d:7,b:11},{m:12,d:7,b:0}
+    ];
+    var curMB = 0; // antes del 5 de enero: todavia rama Rata (arrastrada del 7-dic anterior)
+    for (var j = 0; j < cutsOrdered.length; j++) {
+      var c = cutsOrdered[j];
+      var cd = new Date(Date.UTC(y, c.m - 1, c.d));
+      if (d >= cd) curMB = c.b;
+    }
+    var monthBranchIdx = curMB;
+    var yinStem = YIN_MONTH_STEM_FROM_YEAR[yStemIdx];
+    var offsetFromYin = (((monthBranchIdx - 2) % 12) + 12) % 12;
+    var mStemIdx = (yinStem + offsetFromYin) % 10;
+    var monthPillar = pillar(mStemIdx, monthBranchIdx);
+
+    // --- Pilar del dia (offset desde ancla 2019-01-27 = Jia-Zi) ---
+    var dateUTC = new Date(Date.UTC(y, m - 1, day));
+    var daysSince = Math.round((dateUTC - DAY_REF) / 86400000);
+    var dayIdx = ((daysSince % 60) + 60) % 60;
+    var dStemIdx = dayIdx % 10, dBranchIdx = dayIdx % 12;
+    var dayPillar = pillar(dStemIdx, dBranchIdx);
+
+    // --- Pilar de la hora (con correccion de hora solar por longitud) ---
+    var hm = (horaStr || "12:00").split(":");
+    var hourFloat = parseInt(hm[0], 10) + (parseInt(hm[1], 10) || 0) / 60;
+    var standardMeridian = (tzOffset || 0) * 15;
+    var correctionMin = (longitud - standardMeridian) * 4;
+    var adjHourFloat = hourFloat + correctionMin / 60;
+    adjHourFloat = ((adjHourFloat % 24) + 24) % 24;
+    var hBranchIdx = Math.floor((((adjHourFloat + 1) % 24)) / 2);
+    var ziStem = ZI_HOUR_STEM_FROM_DAY[dStemIdx];
+    var hStemIdx = (ziStem + hBranchIdx) % 10;
+    var hourPillar = pillar(hStemIdx, hBranchIdx);
+
+    return {
+      animYear: animYear, year: yearPillar, month: monthPillar, day: dayPillar, hour: hourPillar,
+      elementoMaestro: { stemIdx: dStemIdx, label: STEM_ES[dStemIdx] },
+      correccionMin: Math.round(correctionMin), horaSolarAprox: adjHourFloat
+    };
+  }
+
+  // ---------- Los 10 dioses ----------
+  var DIOS_NOMBRE = ["Amigo","Riqueza Robada","Dios del Alimento","Oficial Hiriente","Riqueza Directa","Riqueza Indirecta","Oficial Directo","7 Asesinos","Recurso Directo","Recurso Indirecto"];
+  var DIOS_DESC = {
+    "Amigo": "Comodidad, espontaneidad, trabajo en equipo, optimismo, liderazgo. Riesgo: complacencia, egoísmo.",
+    "Riqueza Robada": "Energía similar a la tuya pero se expresa como competencia y desafío. Fortalece la voluntad.",
+    "Dios del Alimento": "Creación, expresión, producción. Alineación con tu propósito. Riesgo: perderte en un ámbito.",
+    "Oficial Hiriente": "Creación y expresión, con dificultad para comunicar sin agresividad. Líder innato.",
+    "Riqueza Directa": "Bienes materiales que llegan por tu propio trabajo. Riesgo: control excesivo e impaciencia.",
+    "Riqueza Indirecta": "Bienes materiales por el trabajo de otros (herencias, benefactores). Riesgo: no agradecer.",
+    "Oficial Directo": "Habilidad y ambición de poder, conciencia de jerarquías. Riesgo: apegarte al reglamento.",
+    "7 Asesinos": "Problemas con la autoridad y el poder. Gran capacidad de asumir riesgos y responsabilidades.",
+    "Recurso Directo": "Abundancia de recursos personales o familiares. Capacidad de aprendizaje y análisis.",
+    "Recurso Indirecto": "Abundancia de recursos que no ponés en uso. Buscás una vida tranquila. Gran intuición."
+  };
+  // indice relativo (elementoOtro - elementoMaestro) mod5, y si comparten polaridad -> fila par/impar
+  function calcularDios(maestroStemIdx, otroStemIdx) {
+    if (maestroStemIdx === otroStemIdx) return "Amigo";
+    var elM = Math.floor(maestroStemIdx / 2), polM = maestroStemIdx % 2;
+    var elO = Math.floor(otroStemIdx / 2), polO = otroStemIdx % 2;
+    var mismaPol = polM === polO;
+    var diff = ((elO - elM) % 5 + 5) % 5; // 0 mismo,1 el maestro genera,2 el maestro controla,3 lo controlan,4 lo generan
+    if (diff === 0) return "Riqueza Robada";
+    if (diff === 1) return mismaPol ? "Dios del Alimento" : "Oficial Hiriente";
+    if (diff === 2) return mismaPol ? "Riqueza Indirecta" : "Riqueza Directa";
+    if (diff === 3) return mismaPol ? "7 Asesinos" : "Oficial Directo";
+    return mismaPol ? "Recurso Indirecto" : "Recurso Directo";
+  }
+  function stemIdxFromElementoPolaridad(elemento, polaridad) {
+    var els = ["Madera","Fuego","Tierra","Metal","Agua"];
+    var elIdx = els.indexOf(elemento);
+    var polIdx = polaridad === "Yang" ? 0 : 1;
+    return elIdx * 2 + polIdx;
   }
 
   var TIPO_DESC = {
@@ -400,39 +437,31 @@
     "Trigono de agua": "Tu animal forma parte del triángulo elemental del período: energía amplificada.",
     "Armonia de metal": "Unión de buen augurio con la energía del período.",
     "Armonia de Tierra": "Unión de buen augurio con la energía del período.",
-    "Castigo incivilizado": "Riesgo de ser desagradecidx o deslel con quien ayudó.",
+    "Castigo incivilizado": "Riesgo de ser desagradecidx o deslel con quien te ayudó.",
     "Sin relacion": "Período neutro: depende más de tus acciones que de la energía del momento.",
     "Ano previo": "El año siguiente al propio trae desgaste acumulado: prioriza descansar."
   };
   function tipoDescripcion(tipoStr) {
     var partes = tipoStr.split(";").map(function (s) { return s.trim(); });
-    var out = [];
-    partes.forEach(function (p) { for (var k in TIPO_DESC) { if (p.indexOf(k) === 0) { out.push(TIPO_DESC[k]); break; } } });
+    var out = []; partes.forEach(function (p) { for (var k in TIPO_DESC) { if (p.indexOf(k) === 0) { out.push(TIPO_DESC[k]); break; } } });
     return out.join(" ");
   }
   function tipoValenciaChips(tipoStr, tipoValencia) {
-    return tipoStr.split(";").map(function (t) {
-      return '<span class="chip ' + tipoValencia + '">' + t.trim() + '</span>';
-    }).join("");
+    return tipoStr.split(";").map(function (t) { return '<span class="chip ' + tipoValencia + '">' + t.trim() + '</span>'; }).join("");
   }
 
-  var ELEMENT_VAR = { "Madera": "var(--el-madera)", "Fuego": "var(--el-fuego)", "Tierra": "var(--el-tierra)", "Metal": "var(--el-metal)", "Agua": "var(--el-agua)" };
+  function animalInfo(id) { return DATA.animales.find(function (a) { return a.id === id; }); }
+  function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+  function starRow(nombre) { var s = DATA.estrellas[nombre] || { sig: "", val: "neutra" }; return '<div class="star-item"><b>' + nombre + '</b><span>' + s.sig + '</span></div>'; }
+  function starValencia(e) { return (DATA.estrellas[e] || {}).val; }
 
   function animalDelAnio(dateStr) {
-    var d = new Date(dateStr + "T00:00:00");
-    var y = d.getFullYear();
+    var d = new Date(dateStr + "T00:00:00"); var y = d.getFullYear();
     var cutoff = new Date(y + "-02-04T00:00:00");
     var animYear = d < cutoff ? y - 1 : y;
     var idx = ((animYear - DATA.anioReferencia) % 12 + 12) % 12;
     return { animal: DATA.animalOrden[idx], animYear: animYear };
   }
-  function animalInfo(id) { return DATA.animales.find(function (a) { return a.id === id; }); }
-  function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
-  function starRow(nombre) {
-    var s = DATA.estrellas[nombre] || { sig: "", val: "neutra" };
-    return '<div class="star-item"><b>' + nombre + '</b><span>' + s.sig + '</span></div>';
-  }
-  function starValencia(e) { return (DATA.estrellas[e] || {}).val; }
 
   function detectarMesHoy() {
     var hoy = "2026-09-10";
@@ -442,30 +471,37 @@
   var HOY_MES = detectarMesHoy();
   var mesActivo = HOY_MES;
 
-  function currentAnimal() {
-    var v = document.getElementById('birthdate').value || "1990-07-15";
-    return animalDelAnio(v).animal;
+  function getInputs() {
+    return {
+      fecha: document.getElementById('birthdate').value || "1990-07-15",
+      hora: document.getElementById('birthtime').value || "12:00",
+      longitud: parseFloat(document.getElementById('longitud').value) || -58.4,
+      tz: parseFloat(document.getElementById('tzoffset').value) || -3,
+      nombre: document.getElementById('nombre').value || "vos"
+    };
   }
+  function currentAnimal() { return animalDelAnio(getInputs().fecha).animal; }
+  function currentCarta() { var i = getInputs(); return calcularCartaNatal(i.fecha, i.hora, i.longitud, i.tz); }
 
-  // ---------- Navegación entre pantallas ----------
+  // ---------- Navegacion ----------
   function showScreen(name) {
     document.querySelectorAll('.screen').forEach(function (s) { s.classList.toggle('active', s.dataset.screen === name); });
     document.querySelectorAll('.nav-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.goto === name); });
     document.getElementById('screenArea').scrollTop = 0;
   }
-  document.querySelectorAll('[data-goto]').forEach(function (el) {
-    el.addEventListener('click', function () { showScreen(el.dataset.goto); });
-  });
-  document.getElementById('backToCal').addEventListener('click', function () { showScreen('calendario'); });
+  document.querySelectorAll('[data-goto]').forEach(function (el) { el.addEventListener('click', function () { showScreen(el.dataset.goto); }); });
 
   // ---------- Home ----------
   function renderHome() {
+    var inputs = getInputs();
+    document.getElementById('homeGreeting').textContent = 'Hola, ' + inputs.nombre + ' 👋';
     var animal = currentAnimal();
     var info = animalInfo(animal);
-    var r = animalDelAnio(document.getElementById('birthdate').value || "1990-07-15");
+    var r = animalDelAnio(inputs.fecha);
     document.getElementById('homeHero').innerHTML =
       '<div class="seal">' + info.hanzi + '</div>' +
-      '<div><h2>Sos ' + animal + '</h2><p>Nacidx en el año ' + r.animYear + ' · haz tap para ver tu presagio completo</p></div>';
+      '<div><h2>Sos ' + animal + '</h2><p>Nacidx en el año ' + r.animYear + ' · tocá para ver tu presagio completo</p></div>';
+    document.getElementById('homeHero').onclick = function () { showScreen('presagio'); };
 
     var mes = DATA.meses2026.find(function (m) { return m.n === HOY_MES; });
     var pm = DATA.presagiosMensuales[HOY_MES][animal];
@@ -473,34 +509,84 @@
       '<div class="row"><div><h3>Hoy: ' + mes.animal + ' de ' + mes.elemento + '</h3>' +
       '<p>Tu relación este mes: ' + pm.tipo.split(';')[0].trim() + '</p></div>' +
       '<span class="chip ' + pm.tipoValencia + '">' + pm.tipoValencia + '</span></div>';
-    document.getElementById('todayCard').style.cursor = 'pointer';
-    document.getElementById('todayCard').onclick = function () { openMonth(HOY_MES); };
+    document.getElementById('todayCard').onclick = function () { mesActivo = HOY_MES; showScreen('calendario'); renderMonthStrip(); renderMonthDetail(); };
   }
 
-  // ---------- Config / animal ----------
-  function renderAnimalResult() {
-    var r = animalDelAnio(document.getElementById('birthdate').value || "1990-07-15");
-    var info = animalInfo(r.animal);
+  // ---------- Config / carta natal ----------
+  function renderCartaNatal() {
+    var i = getInputs();
+    var animYear = animalDelAnio(i.fecha);
+    var info = animalInfo(animYear.animal);
     document.getElementById('animalResult').innerHTML =
       '<div class="seal">' + info.hanzi + '</div>' +
-      '<div><h3 style="font-family:\'Noto Serif\',serif;font-size:17px;margin:0 0 3px;">' + r.animal + ' · ' + r.animYear + '</h3>' +
+      '<div><h3 style="font-family:\'Noto Serif\',serif;font-size:17px;margin:0 0 3px;">' + animYear.animal + ' · ' + animYear.animYear + '</h3>' +
       '<p style="margin:0;color:var(--text-dim);font-size:12px;">' + info.arquetipo + '</p></div>';
+
+    var carta = calcularCartaNatal(i.fecha, i.hora, i.longitud, i.tz);
+    var cols = [carta.hour, carta.day, carta.month, carta.year];
+    var heads = ["Hora", "Día", "Mes", "Año"];
+    var rowsHtml = '<table class="bazi-table"><tr><td class="lbl"></td>' + heads.map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr>' +
+      '<tr><td class="lbl">Tronco</td>' + cols.map(function (p, idx) { return '<td class="stem' + (idx === 1 ? ' maestro' : '') + '">' + p.stemHanzi + '<br>' + p.stem + '</td>'; }).join('') + '</tr>' +
+      '<tr><td class="lbl">Rama</td>' + cols.map(function (p) { return '<td>' + p.branchHanzi + '<br>' + p.branch + '</td>'; }).join('') + '</tr>' +
+      '</table>';
+
+    document.getElementById('baziCard').innerHTML =
+      '<p class="section-label">Tu carta natal (4 pilares)</p>' + rowsHtml +
+      '<p class="rel-desc" style="margin-top:12px;"><b style="color:var(--text);">Elemento maestro: ' + carta.elementoMaestro.label + '</b><br>Es el tronco del pilar del día — el que "rige" toda tu carta y define tus 10 dioses.</p>' +
+      '<p class="bazi-caveat">Corrección de hora solar aplicada: ' + (carta.correccionMin >= 0 ? '+' : '') + carta.correccionMin + ' min sobre la hora de reloj, según la longitud ingresada. No incluye la ecuación del tiempo (variación de ±0-16 min según el día del año) — una versión de producción debería sumarla para precisión total en casos límite.</p>';
   }
 
   // ---------- Presagio anual ----------
   function renderAnual() {
     var animal = currentAnimal();
+    var carta = currentCarta();
     var p = DATA.presagiosAnuales[animal];
     var tipoV = /Tai Sui|Autocastigo|Choque|^Dano|Destruccion|Castigo/.test(p.tipo) && !/Armonia|Union|Trigono/.test(p.tipo) ? "desfavorable" : (/Armonia|Union|Trigono/.test(p.tipo) ? "favorable" : "neutra");
     var favs = p.estrellas.filter(function (e) { return starValencia(e) === "favorable"; });
     var desf = p.estrellas.filter(function (e) { return starValencia(e) === "desfavorable"; });
+
+    var anioStemIdx = stemIdxFromElementoPolaridad("Fuego", "Yang"); // 2026 = Bing (Fuego Yang)
+    var diosAnio = calcularDios(carta.elementoMaestro.stemIdx, anioStemIdx);
+
     document.getElementById('anualPanel').innerHTML =
+      '<div class="card"><p class="section-label">Dios del año (según tu elemento maestro)</p>' +
+      '<span class="chip dios">' + diosAnio + '</span>' +
+      '<p class="rel-desc">' + DIOS_DESC[diosAnio] + '</p></div>' +
       '<div class="card"><p class="section-label">Tu relación con el año</p><div class="chip-row">' + tipoValenciaChips(p.tipo, tipoV) + '</div>' +
       '<p class="rel-desc">' + tipoDescripcion(p.tipo) + '</p></div>' +
       '<div class="card stars-panel"><div class="stars-grid">' +
       '<div><div class="stars-col-title fav">Favorables (' + favs.length + ')</div>' + (favs.length ? favs.map(starRow).join("") : '<p class="stars-empty">Ninguna.</p>') + '</div>' +
       '<div><div class="stars-col-title desf">A vigilar (' + desf.length + ')</div>' + (desf.length ? desf.map(starRow).join("") : '<p class="stars-empty">Ninguna.</p>') + '</div>' +
       '</div></div>';
+
+    renderReflexion('reflexAnual', 'reflex_anual_2026', [
+      "¿Cuál es la primera sensación que te da leer tu presagio de este año?",
+      "¿Hay algo de esta energía que te entusiasme?",
+      "¿Hay algo que te preocupe o te dé miedo?",
+      "¿Cuáles de tus objetivos 2026 sentís que están alineados con esta energía?"
+    ]);
+  }
+
+  // ---------- Reflexion (preguntas + notas guardadas) ----------
+  function renderReflexion(containerId, storageKey, preguntas) {
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(storageKey) || "{}"); } catch (e) {}
+    var html = '<p class="section-label">Espacio de reflexión</p>';
+    preguntas.forEach(function (q, i) {
+      html += '<div class="reflex-q"><label>' + q + '</label><textarea data-q="' + i + '" placeholder="Escribí lo que se te ocurra...">' + escapeHtml(saved[i] || "") + '</textarea></div>';
+    });
+    html += '<p class="reflex-saved" id="' + containerId + 'Saved">Guardado ✓ (solo en este navegador)</p>';
+    var el = document.getElementById(containerId);
+    el.innerHTML = html;
+    el.querySelectorAll('textarea').forEach(function (ta) {
+      ta.addEventListener('input', function () {
+        var data = {}; try { data = JSON.parse(localStorage.getItem(storageKey) || "{}"); } catch (e) {}
+        data[ta.dataset.q] = ta.value;
+        localStorage.setItem(storageKey, JSON.stringify(data));
+        var s = document.getElementById(containerId + 'Saved'); s.classList.add('show');
+        clearTimeout(s._t); s._t = setTimeout(function () { s.classList.remove('show'); }, 1500);
+      });
+    });
   }
 
   // ---------- Objetivos ----------
@@ -521,10 +607,7 @@
       { titulo: "Amistades", tareas: ["Reencontrar 3 amistades", "Evento anual", "Escribir sin motivo"] }
     ]}
   ];
-  function loadObjetivos() {
-    try { var raw = localStorage.getItem('almanaque_objetivos'); if (raw) return JSON.parse(raw); } catch (e) {}
-    return JSON.parse(JSON.stringify(EJEMPLO_OBJETIVOS));
-  }
+  function loadObjetivos() { try { var raw = localStorage.getItem('almanaque_objetivos'); if (raw) return JSON.parse(raw); } catch (e) {} return JSON.parse(JSON.stringify(EJEMPLO_OBJETIVOS)); }
   function saveObjetivos(obj) { try { localStorage.setItem('almanaque_objetivos', JSON.stringify(obj)); } catch (e) {} }
   var objetivos = loadObjetivos();
 
@@ -553,39 +636,30 @@
       });
     });
   }
-  document.getElementById('resetObjetivos').addEventListener('click', function () {
-    objetivos = JSON.parse(JSON.stringify(EJEMPLO_OBJETIVOS));
-    saveObjetivos(objetivos); renderObjetivos();
-  });
+  document.getElementById('resetObjetivos').addEventListener('click', function () { objetivos = JSON.parse(JSON.stringify(EJEMPLO_OBJETIVOS)); saveObjetivos(objetivos); renderObjetivos(); });
 
-  // ---------- Calendario: grilla ----------
+  // ---------- Calendario: tira + detalle inline ----------
   function mesScoreParaAnimal(mesN, animal) {
     var pm = DATA.presagiosMensuales[mesN][animal];
     var favs = pm.estrellas.filter(function (e) { return starValencia(e) === "favorable"; }).length;
     var desf = pm.estrellas.filter(function (e) { return starValencia(e) === "desfavorable"; }).length;
-    var score = favs - desf + (pm.tipoValencia === "favorable" ? 2 : pm.tipoValencia === "desfavorable" ? -2 : 0);
-    return score;
+    return favs - desf + (pm.tipoValencia === "favorable" ? 2 : pm.tipoValencia === "desfavorable" ? -2 : 0);
   }
-  function scoreToValencia(score) { return score >= 2 ? "favorable" : score <= -2 ? "desfavorable" : "neutra"; }
 
-  function renderMonthGrid() {
-    var animal = currentAnimal();
+  function renderMonthStrip() {
     var html = "";
     DATA.meses2026.forEach(function (m) {
-      var score = mesScoreParaAnimal(m.n, animal);
-      var v = scoreToValencia(score);
-      var isToday = m.n === HOY_MES;
-      html += '<button class="month-tile' + (isToday ? ' today-tile' : '') + '" style="--tile-el:' + ELEMENT_VAR[m.elemento] + '" data-mes="' + m.n + '">' +
-        '<div class="mnum">MES ' + String(m.n).padStart(2, '0') + '</div>' +
-        '<div class="manimal">' + m.animal + '</div>' +
-        '<div class="mel">' + m.elemento + ' ' + m.polaridad + '</div>' +
-        '<div class="mdot-row"><span class="mdot ' + v + '"></span><span class="mdot-label">' + v + '</span></div>' +
-        '</button>';
+      html += '<button class="month-tab' + (m.n === mesActivo ? ' active' : '') + '" style="--tab-el:' + ANIMAL_VAR[m.animal] + '" data-mes="' + m.n + '">' +
+        '<b>' + m.animal + '</b>' + m.elemento.slice(0, 3) + (m.n === HOY_MES ? '<span class="doty">HOY</span>' : '') + '</button>';
     });
-    document.getElementById('monthGrid').innerHTML = html;
-    document.getElementById('monthGrid').querySelectorAll('.month-tile').forEach(function (el) {
-      el.addEventListener('click', function () { openMonth(+el.dataset.mes); });
+    document.getElementById('monthStrip').innerHTML = html;
+    document.getElementById('monthStrip').querySelectorAll('.month-tab').forEach(function (el) {
+      el.addEventListener('click', function () { mesActivo = +el.dataset.mes; renderMonthStrip(); renderMonthDetail(); scrollActiveTabIntoView(); });
     });
+  }
+  function scrollActiveTabIntoView() {
+    var active = document.querySelector('.month-tab.active');
+    if (active) active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }
 
   function fmtFecha(s) { var d = new Date(s + "T00:00:00"); return d.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' }); }
@@ -596,36 +670,28 @@
       if (t.trim()) todas.push({ id: 'O' + (oi + 1) + '-A' + (ai + 1) + '-T' + (ti + 1), texto: t });
     }); }); });
     var cls, verdict, texto, elegidas;
-    if (score >= 2) {
-      cls = "pos"; verdict = "Mes favorable — avanzar";
-      texto = "La energía de " + mes.animal + " de " + mes.elemento + " acompaña a tu animal (" + animal + "). Buen momento para impulsar tareas nuevas, no solo mantenimiento.";
-      elegidas = todas.slice(0, 3);
-    } else if (score <= -2) {
-      cls = "neg"; verdict = "Mes de cuidado — sostener";
-      texto = "Hay más estrellas a vigilar que favorables. No es el mejor momento para decisiones grandes: sostené lo que ya está en marcha.";
-      elegidas = todas.filter(function (t) { return /administra|ordenar|revisar|chequeo|planificar|definir/i.test(t.texto); });
-      if (!elegidas.length) elegidas = todas.slice(0, 1);
-    } else {
-      cls = "neu"; verdict = "Mes neutro — a criterio";
-      texto = "No hay una energía muy marcada para tu animal este mes: el avance depende más de tu constancia.";
-      elegidas = todas.slice(0, 2);
-    }
+    if (score >= 2) { cls = "pos"; verdict = "Mes favorable — avanzar"; texto = "La energía de " + mes.animal + " de " + mes.elemento + " acompaña a tu animal (" + animal + "). Buen momento para impulsar tareas nuevas, no solo mantenimiento."; elegidas = todas.slice(0, 3); }
+    else if (score <= -2) { cls = "neg"; verdict = "Mes de cuidado — sostener"; texto = "Hay más estrellas a vigilar que favorables. No es el mejor momento para decisiones grandes: sostené lo que ya está en marcha."; elegidas = todas.filter(function (t) { return /administra|ordenar|revisar|chequeo|planificar|definir/i.test(t.texto); }); if (!elegidas.length) elegidas = todas.slice(0, 1); }
+    else { cls = "neu"; verdict = "Mes neutro — a criterio"; texto = "No hay una energía muy marcada para tu animal este mes: el avance depende más de tu constancia."; elegidas = todas.slice(0, 2); }
     return { cls: cls, verdict: verdict, texto: texto, tareas: elegidas };
   }
 
-  function openMonth(mesN) {
-    mesActivo = mesN;
-    var mes = DATA.meses2026.find(function (m) { return m.n === mesN; });
+  function renderMonthDetail() {
+    var mes = DATA.meses2026.find(function (m) { return m.n === mesActivo; });
     var animal = currentAnimal();
-    var pm = DATA.presagiosMensuales[mesN][animal];
+    var carta = currentCarta();
+    var pm = DATA.presagiosMensuales[mesActivo][animal];
     var favs = pm.estrellas.filter(function (e) { return starValencia(e) === "favorable"; });
     var desf = pm.estrellas.filter(function (e) { return starValencia(e) === "desfavorable"; });
     var neu = pm.estrellas.length - favs.length - desf.length;
     var total = Math.max(pm.estrellas.length, 1);
-    var score = mesScoreParaAnimal(mesN, animal);
+    var score = mesScoreParaAnimal(mesActivo, animal);
     var meterHtml = '<div class="meter"><div class="m-fav" style="width:' + (favs.length / total * 100) + '%"></div><div class="m-neu" style="width:' + (neu / total * 100) + '%"></div><div class="m-desf" style="width:' + (desf.length / total * 100) + '%"></div></div>' +
       '<div class="meter-label">' + favs.length + ' favorables · ' + neu + ' neutras · ' + desf.length + ' a vigilar</div>';
     var reco = recomendacion(score, animal, mes);
+    var mesStemIdx = stemIdxFromElementoPolaridad(mes.elemento, mes.polaridad);
+    var diosMes = calcularDios(carta.elementoMaestro.stemIdx, mesStemIdx);
+    document.getElementById('calTitle').textContent = mes.n === HOY_MES ? 'Mes en curso' : (mes.animal + ' de ' + mes.elemento);
 
     document.getElementById('monthPanel').innerHTML =
       '<div class="month-head">' + hexStampHtml(mes.hex) +
@@ -633,6 +699,8 @@
       '<div class="dates num">' + fmtFecha(mes.ini) + ' — ' + fmtFecha(mes.fin) + '</div>' +
       '<div class="dates num" style="margin-top:2px;">Hexagrama ' + mes.hex + ' · ' + mes.hexNombre + '</div></div></div>' +
       '<p class="month-tema">"' + mes.tema + '"</p>' +
+      '<div class="card"><p class="section-label">Dios de este mes (según tu elemento maestro)</p><span class="chip dios">' + diosMes + '</span>' +
+      '<p class="rel-desc">' + DIOS_DESC[diosMes] + '</p></div>' +
       '<div class="card"><p class="section-label">Tu relación este mes (' + animal + ')</p>' + meterHtml +
       '<div class="chip-row" style="margin-top:8px;">' + tipoValenciaChips(pm.tipo, pm.tipoValencia) + '</div>' +
       '<p class="rel-desc">' + tipoDescripcion(pm.tipo) + '</p></div>' +
@@ -645,10 +713,14 @@
       '<div class="reco-tasks">' + (reco.tareas.length ? reco.tareas.map(function (t) { return '<div class="reco-task"><span class="oid">' + t.id + '</span>' + escapeHtml(t.texto) + '</div>'; }).join("") : '<div class="reco-task">Cargá objetivos para ver sugerencias.</div>') + '</div>' +
       '<p class="reco-note">Regla borrador: cuenta estrellas + tipo de relación. La regla final la definís con Laura.</p></div>';
 
-    showScreen('mes');
+    renderReflexion('reflexMensual', 'reflex_mes_' + mesActivo, [
+      "¿Cuál es la primera sensación que te da este mes?",
+      "¿Qué tareas de tus objetivos se alinean con la energía disponible?",
+      "¿Se te ocurre algo nuevo para hacer este mes que no tenías pensado?"
+    ]);
   }
 
-  // ---------- Modal / notificación simulada ----------
+  // ---------- Modal / notificacion simulada ----------
   function openModal(tag, title, text) {
     document.getElementById('modalTag').textContent = tag;
     document.getElementById('modalTitle').textContent = title;
@@ -659,7 +731,7 @@
   document.getElementById('modalClose').addEventListener('click', closeModal);
   document.getElementById('modalDismiss').addEventListener('click', closeModal);
   document.getElementById('modalOverlay').addEventListener('click', function (e) { if (e.target === this) closeModal(); });
-  document.getElementById('modalCta').addEventListener('click', function () { closeModal(); openMonth(HOY_MES); });
+  document.getElementById('modalCta').addEventListener('click', function () { closeModal(); mesActivo = HOY_MES; showScreen('calendario'); renderMonthStrip(); renderMonthDetail(); scrollActiveTabIntoView(); });
 
   function notificacionDeHoy() {
     var animal = currentAnimal();
@@ -672,19 +744,16 @@
   document.getElementById('bellBtn').addEventListener('click', notificacionDeHoy);
 
   // ---------- Init ----------
-  document.getElementById('birthdate').addEventListener('input', function () {
-    renderAnimalResult(); renderHome(); renderAnual(); renderMonthGrid();
+  function renderAll() {
+    renderCartaNatal(); renderHome(); renderAnual(); renderMonthStrip(); renderMonthDetail();
+  }
+  ['birthdate', 'birthtime', 'longitud', 'tzoffset', 'nombre'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', renderAll);
   });
-  renderAnimalResult();
-  renderHome();
-  renderAnual();
+  renderAll();
   renderObjetivos();
-  renderMonthGrid();
   showScreen('inicio');
 
-  setTimeout(function () {
-    document.getElementById('bellDot').style.display = 'block';
-    notificacionDeHoy();
-  }, 900);
+  setTimeout(function () { document.getElementById('bellDot').style.display = 'block'; notificacionDeHoy(); }, 900);
 })();
 </script>

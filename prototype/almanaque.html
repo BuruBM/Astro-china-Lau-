@@ -3,6 +3,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
   :root {
+    --outer: #E5DEC9;
     --bg: #F2ECD9;
     --surface: #FBF8EE;
     --surface-2: #EFE6CC;
@@ -17,497 +18,330 @@
     --jade-soft: #DCEAE2;
     --border: rgba(42,35,24,0.16);
     --border-strong: rgba(42,35,24,0.30);
-    --el-madera: #3E6D5C;
-    --el-fuego: #A8341F;
-    --el-tierra: #8A6F3F;
-    --el-metal: #6C7378;
-    --el-agua: #2C4359;
-    --shadow: 0 1px 2px rgba(42,35,24,0.06), 0 6px 20px rgba(42,35,24,0.08);
+    --el-madera: #3E6D5C; --el-fuego: #A8341F; --el-tierra: #8A6F3F; --el-metal: #6C7378; --el-agua: #2C4359;
+    --shadow: 0 1px 2px rgba(42,35,24,0.06), 0 10px 26px rgba(42,35,24,0.10);
+    --nav-h: 62px;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #14151F;
-      --surface: #1D1F2E;
-      --surface-2: #262940;
-      --text: #EDE6D3;
-      --text-dim: #A6A08C;
-      --gold: #D4A954;
-      --gold-strong: #E8C989;
-      --gold-soft: #3A3220;
-      --vermillion: #E07A5F;
-      --vermillion-soft: #3A2420;
-      --jade: #8FC4AE;
-      --jade-soft: #1F332C;
-      --border: rgba(237,230,211,0.14);
-      --border-strong: rgba(237,230,211,0.26);
-      --el-madera: #8FC4AE;
-      --el-fuego: #E07A5F;
-      --el-tierra: #C7A56A;
-      --el-metal: #A9B0B4;
-      --el-agua: #7FA3C4;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.35);
+      --outer: #0B0C12;
+      --bg: #14151F; --surface: #1D1F2E; --surface-2: #262940;
+      --text: #EDE6D3; --text-dim: #A6A08C;
+      --gold: #D4A954; --gold-strong: #E8C989; --gold-soft: #3A3220;
+      --vermillion: #E07A5F; --vermillion-soft: #3A2420;
+      --jade: #8FC4AE; --jade-soft: #1F332C;
+      --border: rgba(237,230,211,0.14); --border-strong: rgba(237,230,211,0.26);
+      --el-madera: #8FC4AE; --el-fuego: #E07A5F; --el-tierra: #C7A56A; --el-metal: #A9B0B4; --el-agua: #7FA3C4;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.4);
     }
   }
   :root[data-theme="dark"] {
-    --bg: #14151F;
-    --surface: #1D1F2E;
-    --surface-2: #262940;
-    --text: #EDE6D3;
-    --text-dim: #A6A08C;
-    --gold: #D4A954;
-    --gold-strong: #E8C989;
-    --gold-soft: #3A3220;
-    --vermillion: #E07A5F;
-    --vermillion-soft: #3A2420;
-    --jade: #8FC4AE;
-    --jade-soft: #1F332C;
-    --border: rgba(237,230,211,0.14);
-    --border-strong: rgba(237,230,211,0.26);
-    --el-madera: #8FC4AE;
-    --el-fuego: #E07A5F;
-    --el-tierra: #C7A56A;
-    --el-metal: #A9B0B4;
-    --el-agua: #7FA3C4;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.35);
+    --outer: #0B0C12;
+    --bg: #14151F; --surface: #1D1F2E; --surface-2: #262940;
+    --text: #EDE6D3; --text-dim: #A6A08C;
+    --gold: #D4A954; --gold-strong: #E8C989; --gold-soft: #3A3220;
+    --vermillion: #E07A5F; --vermillion-soft: #3A2420;
+    --jade: #8FC4AE; --jade-soft: #1F332C;
+    --border: rgba(237,230,211,0.14); --border-strong: rgba(237,230,211,0.26);
+    --el-madera: #8FC4AE; --el-fuego: #E07A5F; --el-tierra: #C7A56A; --el-metal: #A9B0B4; --el-agua: #7FA3C4;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.4);
   }
 
   * { box-sizing: border-box; }
-  html { text-size-adjust: 100%; }
+  html, body { height: 100%; }
   body {
     margin: 0;
-    background: var(--bg);
+    background: var(--outer);
     color: var(--text);
     font-family: 'IBM Plex Sans', -apple-system, Arial, sans-serif;
-    padding-inline: 16px;
-    padding-block: 28px 80px;
   }
-  ::selection { background: var(--gold-soft); }
   .num { font-variant-numeric: tabular-nums; }
-  a { color: inherit; }
+  ::selection { background: var(--gold-soft); }
 
-  .wrap { max-width: 880px; margin: 0 auto; }
-
-  /* ---------- Masthead ---------- */
-  .masthead {
+  /* ---------------- App frame ---------------- */
+  .app-frame {
+    max-width: 460px;
+    margin: 0 auto;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--bg);
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-    padding-bottom: 18px;
-    border-bottom: 2px solid var(--border-strong);
-    margin-bottom: 22px;
-  }
-  .masthead-title {
-    font-family: 'Noto Serif', Georgia, serif;
-    font-weight: 700;
-    font-size: clamp(28px, 5vw, 40px);
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-    margin: 0;
-  }
-  .masthead-title .hz { color: var(--vermillion); font-weight: 400; }
-  .masthead-sub {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
-
-  .draft-banner {
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--vermillion);
-    border-radius: 4px;
-    padding: 12px 16px;
-    font-size: 13.5px;
-    line-height: 1.55;
-    color: var(--text-dim);
-    margin-bottom: 28px;
-  }
-  .draft-banner b { color: var(--text); font-weight: 600; }
-
-  /* ---------- Stepper nav ---------- */
-  .stepper {
-    display: flex;
-    gap: 4px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    margin-bottom: 24px;
-    scrollbar-width: thin;
-  }
-  .step-btn {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.03em;
-    white-space: nowrap;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-    padding: 8px 14px;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background .15s, color .15s, border-color .15s;
-  }
-  .step-btn .n { color: var(--gold-strong); margin-right: 6px; }
-  .step-btn:hover { border-color: var(--border-strong); color: var(--text); }
-  .step-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
-  .step-btn.active .n { color: var(--bg); opacity: .6; }
-
-  /* ---------- Section (chapter) ---------- */
-  section.chapter {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
+    flex-direction: column;
     box-shadow: var(--shadow);
-    padding: 26px 26px 28px;
-    margin-bottom: 20px;
-    scroll-margin-top: 16px;
-  }
-  .chapter-eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold-strong);
-    margin: 0 0 6px;
-  }
-  .chapter-title {
-    font-family: 'Noto Serif', Georgia, serif;
-    font-weight: 700;
-    font-size: clamp(20px, 3vw, 26px);
-    margin: 0 0 18px;
-    text-wrap: balance;
-  }
-  .chapter-title small {
-    display: block;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: var(--text-dim);
-    margin-top: 4px;
+    position: relative;
+    overflow: hidden;
   }
 
-  label.field-label {
-    display: block;
-    font-size: 12.5px;
-    font-weight: 600;
-    color: var(--text-dim);
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  input[type="date"], input[type="text"], select {
-    font: inherit;
-    font-family: 'IBM Plex Mono', monospace;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    color: var(--text);
-    border-radius: 6px;
-    padding: 9px 11px;
-    width: 100%;
-  }
-  input:focus-visible, select:focus-visible, button:focus-visible, .step-btn:focus-visible, .month-tab:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 2px;
-  }
-  .example-tag {
-    font-size: 11px;
-    color: var(--vermillion);
-    font-family: 'IBM Plex Mono', monospace;
-    margin-left: 8px;
-  }
-
-  .btn {
-    font: inherit;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 600;
-    font-size: 13.5px;
-    background: var(--text);
-    color: var(--bg);
-    border: none;
-    padding: 10px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  .btn:hover { opacity: 0.88; }
-  .btn.ghost {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border-strong);
-  }
-
-  /* ---------- Animal result card ---------- */
-  .animal-result {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-top: 20px;
-    padding: 18px;
-    background: var(--surface-2);
-    border-radius: 8px;
-    flex-wrap: wrap;
-  }
-  .seal {
+  /* ---------------- Header ---------------- */
+  header.app-header {
     flex: none;
-    width: 68px;
-    height: 68px;
-    border-radius: 10px;
-    background: var(--vermillion);
-    color: #fff;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-family: 'Noto Serif', serif;
-    font-size: 30px;
-    box-shadow: var(--shadow);
-    transform: rotate(-3deg);
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    position: sticky; top: 0; z-index: 5;
   }
-  .animal-result .info h3 {
-    font-family: 'Noto Serif', serif;
-    font-size: 22px;
-    margin: 0 0 2px;
+  .app-header .brand { display: flex; align-items: baseline; gap: 7px; }
+  .app-header .brand .hz { color: var(--vermillion); font-family: 'Noto Serif', serif; font-size: 19px; }
+  .app-header h1 { font-family: 'Noto Serif', serif; font-weight: 700; font-size: 17px; margin: 0; }
+  .bell-btn {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--surface-2);
+    color: var(--text); display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 15px; position: relative; flex: none;
   }
-  .animal-result .info p { margin: 0; color: var(--text-dim); font-size: 13.5px; max-width: 56ch; }
+  .bell-btn .dot { position: absolute; top: 6px; right: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--vermillion); }
 
-  /* ---------- Chips ---------- */
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: var(--surface-2);
-    color: var(--text);
+  /* ---------------- Screens ---------------- */
+  main.screen-area { flex: 1 1 auto; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-bottom: 24px; }
+  .screen { display: none; padding: 18px 16px 8px; }
+  .screen.active { display: block; }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold-strong); margin: 0 0 4px;
   }
+  .screen-title { font-family: 'Noto Serif', serif; font-weight: 700; font-size: 21px; margin: 0 0 4px; text-wrap: balance; }
+  .screen-sub { font-size: 13px; color: var(--text-dim); margin: 0 0 18px; line-height: 1.5; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+
+  label.field-label { display: block; font-size: 11.5px; font-weight: 600; color: var(--text-dim); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+  input[type="date"], input[type="text"] {
+    font: inherit; font-family: 'IBM Plex Mono', monospace; background: var(--surface-2); border: 1px solid var(--border);
+    color: var(--text); border-radius: 6px; padding: 9px 11px; width: 100%;
+  }
+  input:focus-visible, button:focus-visible, .nav-btn:focus-visible, .month-tile:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .example-tag { font-size: 10.5px; color: var(--vermillion); font-family: 'IBM Plex Mono', monospace; }
+
+  .btn { font: inherit; font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 13px; background: var(--text); color: var(--bg); border: none; padding: 9px 16px; border-radius: 6px; cursor: pointer; }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
+  .btn.sm { padding: 6px 12px; font-size: 12px; }
+
+  .back-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .back-btn { background: none; border: none; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; cursor: pointer; padding: 4px 0; display: flex; align-items: center; gap: 4px; }
+  .back-btn:hover { color: var(--text); }
+
+  /* ---------------- Home screen ---------------- */
+  .home-hero {
+    display: flex; gap: 14px; align-items: center; padding: 16px;
+    background: linear-gradient(135deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px;
+  }
+  .seal { flex: none; width: 56px; height: 56px; border-radius: 9px; background: var(--vermillion); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif', serif; font-size: 25px;
+    box-shadow: var(--shadow); transform: rotate(-3deg); }
+  .home-hero h2 { font-family: 'Noto Serif', serif; font-size: 18px; margin: 0 0 2px; }
+  .home-hero p { margin: 0; color: var(--text-dim); font-size: 12.5px; }
+
+  .today-card { border-left: 3px solid var(--gold); }
+  .today-card .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .today-card h3 { font-family: 'Noto Serif', serif; font-size: 15.5px; margin: 0 0 3px; }
+  .today-card p { margin: 0; font-size: 12px; color: var(--text-dim); }
+
+  .quick-links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .quick-link { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: left; cursor: pointer; font-family: inherit; color: var(--text); }
+  .quick-link .ic { font-size: 18px; margin-bottom: 6px; display: block; }
+  .quick-link b { display: block; font-size: 13px; margin-bottom: 2px; }
+  .quick-link span { font-size: 11px; color: var(--text-dim); }
+
+  /* ---------------- Chips / stars (shared) ---------------- */
+  .chip { display: inline-flex; align-items: center; gap: 5px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); }
   .chip.favorable { background: var(--jade-soft); color: var(--jade); border-color: transparent; }
   .chip.desfavorable { background: var(--vermillion-soft); color: var(--vermillion); border-color: transparent; }
   .chip.neutra { color: var(--text-dim); }
-  .chip.ambivalente { background: var(--gold-soft); color: var(--gold-strong); border-color: transparent; }
+  .chip.ambivalente, .chip.mixta { background: var(--gold-soft); color: var(--gold-strong); border-color: transparent; }
   .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .rel-desc { font-size: 12.5px; color: var(--text-dim); margin: 8px 0 0; line-height: 1.55; }
 
-  /* ---------- Objetivos ---------- */
-  .obj-block {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 16px 6px;
-    margin-bottom: 16px;
-  }
-  .obj-block + .obj-block { margin-top: 16px; }
-  .obj-title-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-  .obj-badge {
-    font-family: 'Noto Serif', serif;
-    font-weight: 700;
-    font-size: 15px;
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    background: var(--gold-soft);
-    color: var(--gold-strong);
-    display: flex; align-items: center; justify-content: center;
-    flex: none;
-  }
-  .area-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  @media (max-width: 640px) { .area-grid { grid-template-columns: 1fr; } }
-  .area-col { background: var(--surface-2); border-radius: 6px; padding: 10px 12px; }
-  .area-col input.area-title {
-    background: transparent; border: none; border-bottom: 1px dashed var(--border-strong);
-    font-weight: 600; font-size: 13px; padding: 2px 0 6px; margin-bottom: 8px; width: 100%;
-    font-family: 'IBM Plex Sans', sans-serif;
-  }
-  .task-input {
-    background: transparent; border: none; border-bottom: 1px solid transparent;
-    font-size: 12.5px; padding: 4px 2px; width: 100%; font-family: 'IBM Plex Mono', monospace;
-  }
-  .task-input:hover, .task-input:focus { border-bottom-color: var(--border-strong); }
-  .task-id { color: var(--text-dim); font-size: 10.5px; margin-right: 5px; }
-
-  /* ---------- Month tabs ---------- */
-  .month-tabs {
-    display: flex;
-    gap: 6px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-  }
-  .month-tab {
-    flex: none;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11.5px;
-    text-align: center;
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: var(--surface-2);
-    color: var(--text-dim);
-    cursor: pointer;
-    min-width: 64px;
-    line-height: 1.3;
-  }
-  .month-tab b { display: block; font-size: 12.5px; color: var(--text); }
-  .month-tab.active { border-color: var(--gold); background: var(--gold-soft); color: var(--gold-strong); }
-  .month-tab.active b { color: var(--gold-strong); }
-  .month-tab.today::after { content: '· hoy'; display: block; font-size: 9.5px; color: var(--vermillion); }
-
-  .month-head {
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
-  }
-  .hex-stamp {
-    flex: none;
-    width: 58px; height: 58px;
-    border: 2px solid var(--vermillion);
-    color: var(--vermillion);
-    border-radius: 8px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    font-family: 'IBM Plex Mono', monospace;
-    transform: rotate(2deg);
-  }
-  .hex-stamp .k { font-size: 8px; letter-spacing: 0.08em; opacity: .8; }
-  .hex-stamp .v { font-size: 16px; font-weight: 600; }
-  .month-head h3 { font-family: 'Noto Serif', serif; font-size: 21px; margin: 0 0 4px; }
-  .month-head .dates { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--text-dim); }
-  .month-tema {
-    font-family: 'Noto Serif', serif;
-    font-style: italic;
-    font-size: 14.5px;
-    line-height: 1.6;
-    color: var(--text-dim);
-    border-left: 2px solid var(--border-strong);
-    padding-left: 14px;
-    margin: 0 0 22px;
-  }
-
-  .rel-panel { margin-bottom: 22px; }
-  .rel-panel h4, .stars-panel h4, .reco-panel h4 {
-    font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--text-dim); margin: 0 0 10px; font-weight: 600;
-  }
-  .rel-desc { font-size: 13px; color: var(--text-dim); margin: 8px 0 0; max-width: 62ch; line-height: 1.55; }
-
-  .stars-panel { margin-bottom: 22px; }
-  .stars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  @media (max-width: 560px) { .stars-grid { grid-template-columns: 1fr; } }
-  .stars-col-title { font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+  .stars-panel h4, .reco-panel h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin: 0 0 8px; font-weight: 600; }
+  .stars-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .stars-col-title { font-size: 11.5px; font-weight: 600; margin-bottom: 6px; }
   .stars-col-title.fav { color: var(--jade); }
   .stars-col-title.desf { color: var(--vermillion); }
-  .star-item { font-size: 12.5px; padding: 6px 0; border-bottom: 1px dashed var(--border); }
-  .star-item b { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
-  .star-item span { color: var(--text-dim); font-size: 11.5px; }
-  .stars-empty { font-size: 12.5px; color: var(--text-dim); font-style: italic; }
+  .star-item { font-size: 12px; padding: 5px 0; border-bottom: 1px dashed var(--border); }
+  .star-item b { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; }
+  .star-item span { color: var(--text-dim); font-size: 11px; }
+  .stars-empty { font-size: 12px; color: var(--text-dim); font-style: italic; }
 
-  .meter { display: flex; height: 8px; border-radius: 999px; overflow: hidden; background: var(--surface-2); margin-bottom: 6px; }
+  .meter { display: flex; height: 7px; border-radius: 999px; overflow: hidden; background: var(--surface-2); margin-bottom: 5px; }
   .meter div { height: 100%; }
-  .meter .m-fav { background: var(--jade); }
-  .meter .m-neu { background: var(--el-metal); opacity: .5; }
-  .meter .m-desf { background: var(--vermillion); }
-  .meter-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim); }
+  .meter .m-fav { background: var(--jade); } .meter .m-neu { background: var(--el-metal); opacity: .5; } .meter .m-desf { background: var(--vermillion); }
+  .meter-label { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--text-dim); }
 
-  .reco-panel {
-    border-radius: 8px;
-    padding: 16px 18px;
-    border-left: 3px solid var(--gold);
-    background: var(--gold-soft);
-  }
+  .reco-panel { border-radius: 8px; padding: 14px 16px; border-left: 3px solid var(--gold); background: var(--gold-soft); }
   .reco-panel.neg { border-left-color: var(--vermillion); background: var(--vermillion-soft); }
   .reco-panel.neu { border-left-color: var(--el-metal); background: var(--surface-2); }
-  .reco-verdict { font-family: 'Noto Serif', serif; font-size: 16px; font-weight: 700; margin: 0 0 6px; }
-  .reco-text { font-size: 13px; line-height: 1.6; color: var(--text-dim); margin: 0 0 12px; }
-  .reco-tasks { display: flex; flex-direction: column; gap: 6px; }
-  .reco-task { font-size: 12.5px; font-family: 'IBM Plex Mono', monospace; padding: 6px 10px; background: var(--surface); border-radius: 5px; border: 1px solid var(--border); }
-  .reco-task .oid { color: var(--gold-strong); margin-right: 6px; }
-  .reco-note { font-size: 11.5px; color: var(--text-dim); margin-top: 10px; font-style: italic; }
+  .reco-verdict { font-family: 'Noto Serif', serif; font-size: 15px; font-weight: 700; margin: 0 0 5px; }
+  .reco-text { font-size: 12.5px; line-height: 1.55; color: var(--text-dim); margin: 0 0 10px; }
+  .reco-tasks { display: flex; flex-direction: column; gap: 5px; }
+  .reco-task { font-size: 12px; font-family: 'IBM Plex Mono', monospace; padding: 6px 9px; background: var(--surface); border-radius: 5px; border: 1px solid var(--border); }
+  .reco-task .oid { color: var(--gold-strong); margin-right: 5px; }
+  .reco-note { font-size: 11px; color: var(--text-dim); margin-top: 9px; font-style: italic; }
 
-  footer.credits {
-    text-align: center;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11.5px;
-    color: var(--text-dim);
-    margin-top: 32px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
+  /* ---------------- Hexagram symbol ---------------- */
+  .hex-stamp { flex: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border: 2px solid var(--vermillion); border-radius: 8px; padding: 7px 9px; transform: rotate(1.5deg); }
+  .hex-stamp .k { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.08em; color: var(--vermillion); opacity: .85; }
+  .hex-lines-row { display: flex; gap: 6px; align-items: flex-end; }
+  .hex-lines { display: flex; flex-direction: column; gap: 2.5px; }
+  .hex-line { width: 30px; height: 3px; display: flex; gap: 4px; }
+  .hex-line .seg { background: var(--vermillion); height: 100%; border-radius: 1px; }
+  .hex-line .seg.full { width: 100%; }
+  .hex-line .seg.half { width: 47%; }
+
+  /* ---------------- Objetivos ---------------- */
+  .obj-block { border: 1px solid var(--border); border-radius: 10px; padding: 14px 14px 4px; margin-bottom: 14px; background: var(--surface); }
+  .obj-title-row { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
+  .obj-badge { font-family: 'Noto Serif', serif; font-weight: 700; font-size: 14px; width: 25px; height: 25px; border-radius: 50%; background: var(--gold-soft); color: var(--gold-strong); display: flex; align-items: center; justify-content: center; flex: none; }
+  .obj-title-row input { border: none; border-bottom: 1px dashed var(--border-strong); background: transparent; font-weight: 600; font-size: 13.5px; font-family: 'IBM Plex Sans', sans-serif; padding: 3px 0; width: 100%; }
+  .area-col { background: var(--surface-2); border-radius: 6px; padding: 9px 10px; margin-bottom: 10px; }
+  .area-col input.area-title { background: transparent; border: none; border-bottom: 1px dashed var(--border-strong); font-weight: 600; font-size: 12.5px; padding: 2px 0 5px; margin-bottom: 6px; width: 100%; font-family: 'IBM Plex Sans', sans-serif; }
+  .task-input { background: transparent; border: none; border-bottom: 1px solid transparent; font-size: 12px; padding: 3px 2px; width: 100%; font-family: 'IBM Plex Mono', monospace; }
+  .task-input:hover, .task-input:focus { border-bottom-color: var(--border-strong); }
+  .task-id { color: var(--text-dim); font-size: 10px; margin-right: 4px; }
+
+  /* ---------------- Calendario grid ---------------- */
+  .month-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .month-tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px;
+    cursor: pointer; text-align: left; font-family: inherit; color: var(--text); position: relative; overflow: hidden;
   }
+  .month-tile::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--tile-el, var(--el-tierra)); }
+  .month-tile .mnum { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-dim); }
+  .month-tile .manimal { font-family: 'Noto Serif', serif; font-size: 15px; margin: 3px 0 2px; }
+  .month-tile .mel { font-size: 10.5px; color: var(--text-dim); margin-bottom: 8px; }
+  .month-tile .mdot-row { display: flex; align-items: center; gap: 5px; }
+  .mdot { width: 8px; height: 8px; border-radius: 50%; }
+  .mdot.favorable { background: var(--jade); } .mdot.desfavorable { background: var(--vermillion); } .mdot.neutra, .mdot.mixta { background: var(--el-metal); }
+  .month-tile .mdot-label { font-size: 10px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; }
+  .month-tile.today-tile { border-color: var(--gold); }
+  .month-tile.today-tile::after { content: 'HOY'; position: absolute; top: 8px; right: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; color: var(--gold-strong); letter-spacing: .06em; }
+
+  .month-head { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+  .month-head h3 { font-family: 'Noto Serif', serif; font-size: 18px; margin: 0 0 3px; }
+  .month-head .dates { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim); }
+  .month-tema { font-family: 'Noto Serif', serif; font-style: italic; font-size: 13.5px; line-height: 1.6; color: var(--text-dim); border-left: 2px solid var(--border-strong); padding-left: 12px; margin: 0 0 18px; }
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin: 0 0 8px; font-weight: 600; }
+
+  /* ---------------- Bottom nav ---------------- */
+  nav.bottom-nav { flex: none; display: flex; border-top: 1px solid var(--border); background: var(--surface); height: var(--nav-h); }
+  .nav-btn { flex: 1; background: none; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--text-dim); font-family: 'IBM Plex Sans', sans-serif; font-size: 10.5px; cursor: pointer; }
+  .nav-btn .ic { font-size: 18px; line-height: 1; }
+  .nav-btn.active { color: var(--gold-strong); }
+
+  /* ---------------- Modal / notification popup ---------------- */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(20,17,10,0.45); display: none; align-items: flex-end; justify-content: center; z-index: 50; padding: 0; }
+  .modal-overlay.open { display: flex; }
+  .modal-card { width: 100%; max-width: 460px; background: var(--surface); border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 20px 18px calc(18px + env(safe-area-inset-bottom, 0px)); box-shadow: var(--shadow); animation: slideUp .22s ease-out; }
+  @keyframes slideUp { from { transform: translateY(14px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-strong); margin: 0 0 6px; }
+  .modal-title { font-family: 'Noto Serif', serif; font-size: 17px; font-weight: 700; margin: 0 0 8px; }
+  .modal-text { font-size: 13px; color: var(--text-dim); line-height: 1.55; margin: 0 0 16px; }
+  .modal-actions { display: flex; gap: 8px; }
+  .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; color: var(--text-dim); font-size: 18px; cursor: pointer; }
+  .modal-card { position: relative; }
+
+  .draft-note { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--vermillion); border-radius: 4px; padding: 10px 12px; font-size: 11.5px; line-height: 1.5; color: var(--text-dim); margin-bottom: 14px; }
+  .draft-note b { color: var(--text); }
+
+  @media (max-width: 460px) { .app-frame { box-shadow: none; } }
 </style>
 
-<div class="wrap">
+<div class="app-frame">
+  <header class="app-header">
+    <div class="brand"><span class="hz">馬</span><h1>Almanaque 2026</h1></div>
+    <button class="bell-btn" id="bellBtn" aria-label="Notificaciones">🔔<span class="dot" id="bellDot"></span></button>
+  </header>
 
-  <div class="masthead">
-    <div>
-      <p class="masthead-title">Almanaque <span class="hz">馬</span> Caballo de Fuego</p>
-      <p class="masthead-sub num">Año 2026 · Bing Wu · basado en las guías de Laura I Ching</p>
-    </div>
-  </div>
+  <main class="screen-area" id="screenArea">
 
-  <div class="draft-banner">
-    <b>Esto es un borrador de concepto</b>, no la app final. El animal del año se calcula con una fecha de corte aproximada
-    (4 de febrero); la carta natal completa (4 pilares, elemento maestro, hora exacta) todavía no está implementada.
-    Los datos de presagios 2026 son reales, transcriptos de tus guías — pendientes de tu revisión. La recomendación
-    mensual de tareas usa una regla simple y transparente, marcada como borrador: la regla final la definís vos.
-  </div>
+    <!-- ============ HOME ============ -->
+    <section class="screen active" data-screen="inicio">
+      <p class="eyebrow">Inicio</p>
+      <h2 class="screen-title">Hola 👋</h2>
+      <p class="screen-sub">Este es un borrador de concepto, no la app final. Explorá las pantallas desde el menú de abajo.</p>
 
-  <nav class="stepper" id="stepper">
-    <button class="step-btn" data-target="s1"><span class="n">01</span>Tu animal</button>
-    <button class="step-btn" data-target="s2"><span class="n">02</span>Presagio del año</button>
-    <button class="step-btn" data-target="s3"><span class="n">03</span>Objetivos 2026</button>
-    <button class="step-btn" data-target="s4"><span class="n">04</span>Calendario mensual</button>
+      <div class="home-hero" id="homeHero"></div>
+
+      <div class="card today-card" id="todayCard"></div>
+
+      <p class="section-label" style="margin-top:18px;">Accesos rápidos</p>
+      <div class="quick-links">
+        <button class="quick-link" data-goto="presagio"><span class="ic">🧧</span><b>Presagio 2026</b><span>Tu relación con el año</span></button>
+        <button class="quick-link" data-goto="objetivos"><span class="ic">🎯</span><b>Objetivos</b><span>Método 1×3×3</span></button>
+        <button class="quick-link" data-goto="calendario"><span class="ic">🗓️</span><b>Calendario</b><span>Energía mes a mes</span></button>
+        <button class="quick-link" data-goto="config"><span class="ic">🪪</span><b>Mis datos</b><span>Fecha de nacimiento</span></button>
+      </div>
+    </section>
+
+    <!-- ============ CONFIG (fecha de nacimiento) ============ -->
+    <section class="screen" data-screen="config">
+      <p class="eyebrow">Mis datos</p>
+      <h2 class="screen-title">Tu fecha de nacimiento</h2>
+      <p class="screen-sub">Con esto calculamos el animal de tu año. La carta natal completa (4 pilares) todavía no está implementada en este borrador.</p>
+      <div class="card">
+        <label class="field-label" for="birthdate">Fecha de nacimiento <span class="example-tag">(ejemplo cargado)</span></label>
+        <input type="date" id="birthdate" value="1990-07-15">
+      </div>
+      <div class="card" id="animalResult" style="display:flex; gap:14px; align-items:center;"></div>
+    </section>
+
+    <!-- ============ PRESAGIO ANUAL ============ -->
+    <section class="screen" data-screen="presagio">
+      <p class="eyebrow">Presagio 2026</p>
+      <h2 class="screen-title">Tu año Caballo de Fuego</h2>
+      <p class="screen-sub">Relación de tu animal con el año, y las estrellas simbólicas que trae.</p>
+      <div id="anualPanel"></div>
+    </section>
+
+    <!-- ============ OBJETIVOS ============ -->
+    <section class="screen" data-screen="objetivos">
+      <p class="eyebrow">Objetivos 2026</p>
+      <h2 class="screen-title">Método 1×3×3</h2>
+      <p class="screen-sub">3 objetivos, 3 áreas cada uno, 3 tareas por área. Ejemplo precargado — editalo.</p>
+      <div id="objetivosPanel"></div>
+      <button class="btn ghost" id="resetObjetivos">Restaurar ejemplo</button>
+    </section>
+
+    <!-- ============ CALENDARIO (grilla) ============ -->
+    <section class="screen" data-screen="calendario">
+      <p class="eyebrow">Calendario mensual</p>
+      <h2 class="screen-title">Elegí un mes</h2>
+      <p class="screen-sub">El punto de color anticipa si el mes es favorable para tu animal.</p>
+      <div class="month-grid" id="monthGrid"></div>
+    </section>
+
+    <!-- ============ MES (detalle, drill-in) ============ -->
+    <section class="screen" data-screen="mes">
+      <div class="back-row">
+        <button class="back-btn" id="backToCal">‹ Calendario</button>
+      </div>
+      <div id="monthPanel"></div>
+    </section>
+
+  </main>
+
+  <nav class="bottom-nav" id="bottomNav">
+    <button class="nav-btn" data-goto="inicio"><span class="ic">🏠</span>Inicio</button>
+    <button class="nav-btn" data-goto="presagio"><span class="ic">🧧</span>Presagio</button>
+    <button class="nav-btn" data-goto="objetivos"><span class="ic">🎯</span>Objetivos</button>
+    <button class="nav-btn" data-goto="calendario"><span class="ic">🗓️</span>Calendario</button>
   </nav>
 
-  <!-- ============ CHAPTER 1: BIRTH DATE / ANIMAL ============ -->
-  <section class="chapter" id="s1">
-    <p class="chapter-eyebrow">Paso 01</p>
-    <h2 class="chapter-title">¿Cuál es tu animal?
-      <small>Ingresá tu fecha de nacimiento. Calculamos el animal de tu año según el zodiaco chino.</small>
-    </h2>
-
-    <div style="max-width:320px;">
-      <label class="field-label" for="birthdate">Fecha de nacimiento <span class="example-tag">(ejemplo)</span></label>
-      <input type="date" id="birthdate" value="1990-07-15">
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose">✕</button>
+      <p class="modal-tag" id="modalTag">Notificación simulada</p>
+      <p class="modal-title" id="modalTitle"></p>
+      <p class="modal-text" id="modalText"></p>
+      <div class="modal-actions">
+        <button class="btn" id="modalCta">Ver el mes</button>
+        <button class="btn ghost" id="modalDismiss">Cerrar</button>
+      </div>
     </div>
-
-    <div class="animal-result" id="animalResult"></div>
-  </section>
-
-  <!-- ============ CHAPTER 2: PRESAGIO ANUAL ============ -->
-  <section class="chapter" id="s2">
-    <p class="chapter-eyebrow">Paso 02</p>
-    <h2 class="chapter-title">Tu presagio para el año Caballo de Fuego
-      <small>La relación de tu animal con el año, y las estrellas simbólicas que trae.</small>
-    </h2>
-    <div id="anualPanel"></div>
-  </section>
-
-  <!-- ============ CHAPTER 3: OBJETIVOS ============ -->
-  <section class="chapter" id="s3">
-    <p class="chapter-eyebrow">Paso 03</p>
-    <h2 class="chapter-title">Tus objetivos 2026 (método 1×3×3)
-      <small>3 objetivos, cada uno con 3 áreas de acción, cada área con 3 tareas concretas. Precargamos un ejemplo — editalo como quieras.</small>
-    </h2>
-    <div id="objetivosPanel"></div>
-    <button class="btn ghost" id="resetObjetivos" style="margin-top:6px;">Restaurar ejemplo</button>
-  </section>
-
-  <!-- ============ CHAPTER 4: CALENDARIO MENSUAL ============ -->
-  <section class="chapter" id="s4">
-    <p class="chapter-eyebrow">Paso 04</p>
-    <h2 class="chapter-title">Calendario mensual
-      <small>Elegí un mes para ver tu energía disponible y qué tareas conviene priorizar.</small>
-    </h2>
-    <div class="month-tabs" id="monthTabs"></div>
-    <div id="monthPanel"></div>
-  </section>
-
-  <footer class="credits">Borrador de producto — datos © Laura I Ching, El Zodiaco Chino · construido para validar el concepto</footer>
+  </div>
 </div>
 
 <script type="application/json" id="app-data">
@@ -519,38 +353,71 @@
   "use strict";
   var DATA = JSON.parse(document.getElementById('app-data').textContent);
 
-  var TIPO_DESC = {
-    "Tai Sui": "Tu propia energía, conocida pero inarmónica. La zona de confort se vuelve asfixiante. Trae cambios y obstáculos; cuidar la salud.",
-    "Autocastigo": "Autosabotaje: el propio comportamiento genera un efecto negativo, aunque suele sentirse como culpa de un tercero.",
-    "Choque": "Trabas y obstáculos que aparecen para mostrarte tu propio patrón. No es momento de decisiones trascendentales.",
-    "Dano": "Descuidar o dañar un aspecto de la vida sin verlo venir. Suele tener fuerte impacto emocional.",
-    "Destruccion": "Comportamiento dañino impuesto por circunstancias, sin mucha posibilidad de elegir. Puede indicar cierre de ciclo.",
-    "Armonia": "Unión de buen augurio con la energía del período. Favorece avanzar.",
-    "Union estacional": "Tu animal forma parte del trío estacional del período: energía amplificada y disponible.",
-    "Trigono de fuego": "Tu animal forma parte del triángulo elemental del período: energía amplificada y disponible.",
-    "Trigono de Madera": "Tu animal forma parte del triángulo elemental del período: energía amplificada y disponible.",
-    "Trigono de agua": "Tu animal forma parte del triángulo elemental del período: energía amplificada y disponible.",
-    "Armonia de metal": "Unión de buen augurio con la energía del período. Favorece avanzar.",
-    "Armonia de Tierra": "Unión de buen augurio con la energía del período. Favorece avanzar.",
-    "Castigo incivilizado": "Riesgo de ser desagradecidx o deslel con quien ayudó; comportamiento mal visto socialmente.",
-    "Sin relacion": "Período neutro: lo que suceda depende más de tus acciones que de la energía del momento.",
-    "Ano previo": "El año siguiente al propio trae desgaste acumulado: prioriza descansar y recuperar fuerzas."
+  // ---------- Hexagramas: lineas de abajo hacia arriba (1=yang,0=yin) ----------
+  // Verificadas por composicion de trigramas + contraste cruzado con fuentes externas.
+  var HEXAGRAMS = {
+    "1":  [1,1,1,1,1,1],
+    "15": [0,0,1,0,0,0],
+    "20": [0,0,0,0,1,1],
+    "26": [1,1,1,0,0,1],
+    "31": [0,0,1,1,1,0],
+    "36": [1,0,1,0,0,0],
+    "40": [0,1,0,1,0,0],
+    "42": [1,0,0,0,1,1],
+    "43": [1,1,1,1,1,0],
+    "44": [0,1,1,1,1,1],
+    "48": [0,1,1,0,1,0],
+    "49": [1,0,1,1,1,0],
+    "61": [1,1,0,0,1,1]
   };
 
+  function hexLinesHtml(hexNum) {
+    var lines = HEXAGRAMS[hexNum];
+    if (!lines) return '';
+    var topToBottom = lines.slice().reverse();
+    return '<div class="hex-lines">' + topToBottom.map(function (l) {
+      if (l === 1) return '<div class="hex-line"><div class="seg full"></div></div>';
+      return '<div class="hex-line"><div class="seg half"></div><div class="seg half"></div></div>';
+    }).join('') + '</div>';
+  }
+
+  function hexStampHtml(hexStr) {
+    var nums = hexStr.split('/');
+    return '<div class="hex-stamp"><span class="k">HEX. ' + hexStr + '</span>' +
+      '<div class="hex-lines-row">' + nums.map(hexLinesHtml).join('') + '</div></div>';
+  }
+
+  var TIPO_DESC = {
+    "Tai Sui": "Tu propia energía, conocida pero inarmónica. La zona de confort se vuelve asfixiante. Cuidar la salud.",
+    "Autocastigo": "Autosabotaje: el comportamiento propio genera un efecto negativo, aunque se sienta como culpa de un tercero.",
+    "Choque": "Trabas y obstáculos que muestran tu propio patrón. No es momento de decisiones trascendentales.",
+    "Dano": "Descuidar o dañar un aspecto de la vida sin verlo venir. Fuerte impacto emocional.",
+    "Destruccion": "Comportamiento dañino impuesto por circunstancias, sin mucha posibilidad de elegir.",
+    "Armonia": "Unión de buen augurio con la energía del período. Favorece avanzar.",
+    "Union estacional": "Tu animal forma parte del trío estacional del período: energía amplificada y disponible.",
+    "Trigono de fuego": "Tu animal forma parte del triángulo elemental del período: energía amplificada.",
+    "Trigono de Madera": "Tu animal forma parte del triángulo elemental del período: energía amplificada.",
+    "Trigono de agua": "Tu animal forma parte del triángulo elemental del período: energía amplificada.",
+    "Armonia de metal": "Unión de buen augurio con la energía del período.",
+    "Armonia de Tierra": "Unión de buen augurio con la energía del período.",
+    "Castigo incivilizado": "Riesgo de ser desagradecidx o deslel con quien ayudó.",
+    "Sin relacion": "Período neutro: depende más de tus acciones que de la energía del momento.",
+    "Ano previo": "El año siguiente al propio trae desgaste acumulado: prioriza descansar."
+  };
   function tipoDescripcion(tipoStr) {
     var partes = tipoStr.split(";").map(function (s) { return s.trim(); });
     var out = [];
-    partes.forEach(function (p) {
-      for (var k in TIPO_DESC) {
-        if (p.indexOf(k) === 0 || p === k) { out.push(TIPO_DESC[k]); break; }
-      }
-    });
+    partes.forEach(function (p) { for (var k in TIPO_DESC) { if (p.indexOf(k) === 0) { out.push(TIPO_DESC[k]); break; } } });
     return out.join(" ");
   }
+  function tipoValenciaChips(tipoStr, tipoValencia) {
+    return tipoStr.split(";").map(function (t) {
+      return '<span class="chip ' + tipoValencia + '">' + t.trim() + '</span>';
+    }).join("");
+  }
 
-  var ELEMENT_COLOR = { "Madera": "var(--el-madera)", "Fuego": "var(--el-fuego)", "Tierra": "var(--el-tierra)", "Metal": "var(--el-metal)", "Agua": "var(--el-agua)" };
+  var ELEMENT_VAR = { "Madera": "var(--el-madera)", "Fuego": "var(--el-fuego)", "Tierra": "var(--el-tierra)", "Metal": "var(--el-metal)", "Agua": "var(--el-agua)" };
 
-  // ---------- Fecha de nacimiento -> animal (aproximación, corte 4 feb) ----------
   function animalDelAnio(dateStr) {
     var d = new Date(dateStr + "T00:00:00");
     var y = d.getFullYear();
@@ -559,92 +426,113 @@
     var idx = ((animYear - DATA.anioReferencia) % 12 + 12) % 12;
     return { animal: DATA.animalOrden[idx], animYear: animYear };
   }
-
-  function animalInfo(id) {
-    return DATA.animales.find(function (a) { return a.id === id; });
-  }
-
-  // ---------- Render Cap. 1 + 2 ----------
-  function renderAnimal() {
-    var dateVal = document.getElementById('birthdate').value || "1990-07-15";
-    var r = animalDelAnio(dateVal);
-    var info = animalInfo(r.animal);
-    document.getElementById('animalResult').innerHTML =
-      '<div class="seal">' + info.hanzi + '</div>' +
-      '<div class="info"><h3>' + r.animal + ' · ' + r.animYear + '</h3>' +
-      '<p>' + info.arquetipo + ' — Estación ' + info.estacion.toLowerCase() + ', horario simbólico: ' + info.horario.toLowerCase() + '.</p></div>';
-    renderAnual(r.animal);
-    renderMonthPanel();
-  }
-
+  function animalInfo(id) { return DATA.animales.find(function (a) { return a.id === id; }); }
+  function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
   function starRow(nombre) {
     var s = DATA.estrellas[nombre] || { sig: "", val: "neutra" };
     return '<div class="star-item"><b>' + nombre + '</b><span>' + s.sig + '</span></div>';
   }
+  function starValencia(e) { return (DATA.estrellas[e] || {}).val; }
 
-  function renderAnual(animal) {
-    var p = DATA.presagiosAnuales[animal];
-    var desc = tipoDescripcion(p.tipo);
-    var favs = p.estrellas.filter(function (e) { return (DATA.estrellas[e] || {}).val === "favorable"; });
-    var desf = p.estrellas.filter(function (e) { return (DATA.estrellas[e] || {}).val === "desfavorable"; });
-    var otras = p.estrellas.filter(function (e) { var v = (DATA.estrellas[e] || {}).val; return v !== "favorable" && v !== "desfavorable"; });
+  function detectarMesHoy() {
+    var hoy = "2026-09-10";
+    var found = DATA.meses2026.find(function (m) { return hoy >= m.ini && hoy <= m.fin; });
+    return found ? found.n : 1;
+  }
+  var HOY_MES = detectarMesHoy();
+  var mesActivo = HOY_MES;
 
-    var chips = p.tipo.split(";").map(function (t) {
-      t = t.trim();
-      var v = "neutra";
-      if (["Tai Sui", "Autocastigo", "Choque", "Dano", "Destruccion", "Castigo incivilizado"].some(function (k) { return t.indexOf(k) === 0; })) v = "desfavorable";
-      else if (["Armonia", "Union estacional", "Trigono"].some(function (k) { return t.indexOf(k) === 0; })) v = "favorable";
-      return '<span class="chip ' + v + '">' + t + '</span>';
-    }).join("");
-
-    document.getElementById('anualPanel').innerHTML =
-      '<div class="rel-panel"><h4>Tu relación con el año 2026</h4><div class="chip-row">' + chips + '</div>' +
-      '<p class="rel-desc">' + desc + '</p></div>' +
-      '<div class="stars-panel"><div class="stars-grid">' +
-      '<div><div class="stars-col-title fav">Estrellas favorables (' + favs.length + ')</div>' +
-      (favs.length ? favs.map(starRow).join("") : '<p class="stars-empty">Ninguna este año.</p>') + '</div>' +
-      '<div><div class="stars-col-title desf">Estrellas a vigilar (' + desf.length + ')</div>' +
-      (desf.length ? desf.map(starRow).join("") : '<p class="stars-empty">Ninguna este año.</p>') + '</div>' +
-      '</div>' + (otras.length ? '<div style="margin-top:14px;"><div class="stars-col-title" style="color:var(--text-dim)">Otras (' + otras.length + ')</div>' + otras.map(starRow).join("") + '</div>' : '') + '</div>';
+  function currentAnimal() {
+    var v = document.getElementById('birthdate').value || "1990-07-15";
+    return animalDelAnio(v).animal;
   }
 
-  // ---------- Objetivos 1x3x3 ----------
+  // ---------- Navegación entre pantallas ----------
+  function showScreen(name) {
+    document.querySelectorAll('.screen').forEach(function (s) { s.classList.toggle('active', s.dataset.screen === name); });
+    document.querySelectorAll('.nav-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.goto === name); });
+    document.getElementById('screenArea').scrollTop = 0;
+  }
+  document.querySelectorAll('[data-goto]').forEach(function (el) {
+    el.addEventListener('click', function () { showScreen(el.dataset.goto); });
+  });
+  document.getElementById('backToCal').addEventListener('click', function () { showScreen('calendario'); });
+
+  // ---------- Home ----------
+  function renderHome() {
+    var animal = currentAnimal();
+    var info = animalInfo(animal);
+    var r = animalDelAnio(document.getElementById('birthdate').value || "1990-07-15");
+    document.getElementById('homeHero').innerHTML =
+      '<div class="seal">' + info.hanzi + '</div>' +
+      '<div><h2>Sos ' + animal + '</h2><p>Nacidx en el año ' + r.animYear + ' · haz tap para ver tu presagio completo</p></div>';
+
+    var mes = DATA.meses2026.find(function (m) { return m.n === HOY_MES; });
+    var pm = DATA.presagiosMensuales[HOY_MES][animal];
+    document.getElementById('todayCard').innerHTML =
+      '<div class="row"><div><h3>Hoy: ' + mes.animal + ' de ' + mes.elemento + '</h3>' +
+      '<p>Tu relación este mes: ' + pm.tipo.split(';')[0].trim() + '</p></div>' +
+      '<span class="chip ' + pm.tipoValencia + '">' + pm.tipoValencia + '</span></div>';
+    document.getElementById('todayCard').style.cursor = 'pointer';
+    document.getElementById('todayCard').onclick = function () { openMonth(HOY_MES); };
+  }
+
+  // ---------- Config / animal ----------
+  function renderAnimalResult() {
+    var r = animalDelAnio(document.getElementById('birthdate').value || "1990-07-15");
+    var info = animalInfo(r.animal);
+    document.getElementById('animalResult').innerHTML =
+      '<div class="seal">' + info.hanzi + '</div>' +
+      '<div><h3 style="font-family:\'Noto Serif\',serif;font-size:17px;margin:0 0 3px;">' + r.animal + ' · ' + r.animYear + '</h3>' +
+      '<p style="margin:0;color:var(--text-dim);font-size:12px;">' + info.arquetipo + '</p></div>';
+  }
+
+  // ---------- Presagio anual ----------
+  function renderAnual() {
+    var animal = currentAnimal();
+    var p = DATA.presagiosAnuales[animal];
+    var tipoV = /Tai Sui|Autocastigo|Choque|^Dano|Destruccion|Castigo/.test(p.tipo) && !/Armonia|Union|Trigono/.test(p.tipo) ? "desfavorable" : (/Armonia|Union|Trigono/.test(p.tipo) ? "favorable" : "neutra");
+    var favs = p.estrellas.filter(function (e) { return starValencia(e) === "favorable"; });
+    var desf = p.estrellas.filter(function (e) { return starValencia(e) === "desfavorable"; });
+    document.getElementById('anualPanel').innerHTML =
+      '<div class="card"><p class="section-label">Tu relación con el año</p><div class="chip-row">' + tipoValenciaChips(p.tipo, tipoV) + '</div>' +
+      '<p class="rel-desc">' + tipoDescripcion(p.tipo) + '</p></div>' +
+      '<div class="card stars-panel"><div class="stars-grid">' +
+      '<div><div class="stars-col-title fav">Favorables (' + favs.length + ')</div>' + (favs.length ? favs.map(starRow).join("") : '<p class="stars-empty">Ninguna.</p>') + '</div>' +
+      '<div><div class="stars-col-title desf">A vigilar (' + desf.length + ')</div>' + (desf.length ? desf.map(starRow).join("") : '<p class="stars-empty">Ninguna.</p>') + '</div>' +
+      '</div></div>';
+  }
+
+  // ---------- Objetivos ----------
   var EJEMPLO_OBJETIVOS = [
     { titulo: "Consolidar mi negocio de consultoría", areas: [
-      { titulo: "Ofrenda y clientes", tareas: ["Rediseñar la página de servicios", "Pedir 5 testimonios a clientas", "Lanzar un paquete nuevo"] },
-      { titulo: "Contenido y visibilidad", tareas: ["Publicar 2 veces por semana", "Grabar una serie sobre el año 2026", "Armar newsletter mensual"] },
-      { titulo: "Administración", tareas: ["Ordenar la facturación", "Definir precios 2026", "Elegir herramienta de agenda"] }
+      { titulo: "Ofrenda y clientes", tareas: ["Rediseñar página de servicios", "Pedir 5 testimonios", "Lanzar paquete nuevo"] },
+      { titulo: "Contenido y visibilidad", tareas: ["Publicar 2x por semana", "Serie sobre 2026", "Newsletter mensual"] },
+      { titulo: "Administración", tareas: ["Ordenar facturación", "Definir precios 2026", "Elegir agenda online"] }
     ]},
     { titulo: "Cuidar mi salud y energía", areas: [
-      { titulo: "Cuerpo", tareas: ["Retomar rutina de movimiento", "Chequeo médico anual", "Dormir 7+ horas"] },
-      { titulo: "Mente", tareas: ["Meditar 10 min por día", "Terapia quincenal", "Un fin de semana sin pantallas por mes"] },
-      { titulo: "Descanso", tareas: ["Planificar vacaciones", "Un día libre real por semana", "Límite de horario de trabajo"] }
+      { titulo: "Cuerpo", tareas: ["Retomar rutina física", "Chequeo médico anual", "Dormir 7+ horas"] },
+      { titulo: "Mente", tareas: ["Meditar 10 min/día", "Terapia quincenal", "Finde sin pantallas al mes"] },
+      { titulo: "Descanso", tareas: ["Planificar vacaciones", "Día libre real por semana", "Límite de horario"] }
     ]},
     { titulo: "Fortalecer vínculos familiares", areas: [
-      { titulo: "Pareja", tareas: ["Cena semanal sin celular", "Plan de viaje juntos", "Charla de proyectos compartidos"] },
-      { titulo: "Familia extendida", tareas: ["Visita mensual", "Llamada semanal", "Organizar reunión anual"] },
-      { titulo: "Amistades", tareas: ["Reencontrar 3 amistades", "Evento anual con amigxs", "Escribir/llamar sin motivo"] }
+      { titulo: "Pareja", tareas: ["Cena semanal sin celular", "Plan de viaje juntos", "Charla de proyectos"] },
+      { titulo: "Familia extendida", tareas: ["Visita mensual", "Llamada semanal", "Reunión anual"] },
+      { titulo: "Amistades", tareas: ["Reencontrar 3 amistades", "Evento anual", "Escribir sin motivo"] }
     ]}
   ];
-
   function loadObjetivos() {
-    try {
-      var raw = localStorage.getItem('almanaque_objetivos');
-      if (raw) return JSON.parse(raw);
-    } catch (e) {}
+    try { var raw = localStorage.getItem('almanaque_objetivos'); if (raw) return JSON.parse(raw); } catch (e) {}
     return JSON.parse(JSON.stringify(EJEMPLO_OBJETIVOS));
   }
-  function saveObjetivos(obj) {
-    try { localStorage.setItem('almanaque_objetivos', JSON.stringify(obj)); } catch (e) {}
-  }
+  function saveObjetivos(obj) { try { localStorage.setItem('almanaque_objetivos', JSON.stringify(obj)); } catch (e) {} }
   var objetivos = loadObjetivos();
 
   function renderObjetivos() {
     var html = "";
     objetivos.forEach(function (obj, oi) {
       html += '<div class="obj-block"><div class="obj-title-row"><div class="obj-badge">' + (oi + 1) + '</div>' +
-        '<input type="text" class="task-input" style="font-weight:600;font-size:14px;font-family:\'IBM Plex Sans\',sans-serif;" data-obj="' + oi + '" data-field="titulo" value="' + escapeHtml(obj.titulo) + '"></div>';
-      html += '<div class="area-grid">';
+        '<input type="text" data-obj="' + oi + '" data-field="titulo" value="' + escapeHtml(obj.titulo) + '"></div>';
       obj.areas.forEach(function (area, ai) {
         html += '<div class="area-col"><input type="text" class="area-title" data-obj="' + oi + '" data-area="' + ai + '" data-field="areaTitulo" value="' + escapeHtml(area.titulo) + '">';
         area.tareas.forEach(function (t, ti) {
@@ -652,7 +540,7 @@
         });
         html += '</div>';
       });
-      html += '</div></div>';
+      html += '</div>';
     });
     document.getElementById('objetivosPanel').innerHTML = html;
     document.getElementById('objetivosPanel').querySelectorAll('input').forEach(function (inp) {
@@ -662,145 +550,141 @@
         else if (inp.dataset.field === "areaTitulo") objetivos[oi].areas[+inp.dataset.area].titulo = inp.value;
         else objetivos[oi].areas[+inp.dataset.area].tareas[+inp.dataset.tarea] = inp.value;
         saveObjetivos(objetivos);
-        renderMonthPanel();
       });
     });
   }
-  function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
-
   document.getElementById('resetObjetivos').addEventListener('click', function () {
     objetivos = JSON.parse(JSON.stringify(EJEMPLO_OBJETIVOS));
-    saveObjetivos(objetivos);
-    renderObjetivos();
-    renderMonthPanel();
+    saveObjetivos(objetivos); renderObjetivos();
   });
 
-  // ---------- Meses ----------
-  var mesActivo = 1;
-  function detectarMesHoy() {
-    var hoy = "2026-09-10"; // fecha de referencia de esta demo
-    var found = DATA.meses2026.find(function (m) { return hoy >= m.ini && hoy <= m.fin; });
-    return found ? found.n : 1;
+  // ---------- Calendario: grilla ----------
+  function mesScoreParaAnimal(mesN, animal) {
+    var pm = DATA.presagiosMensuales[mesN][animal];
+    var favs = pm.estrellas.filter(function (e) { return starValencia(e) === "favorable"; }).length;
+    var desf = pm.estrellas.filter(function (e) { return starValencia(e) === "desfavorable"; }).length;
+    var score = favs - desf + (pm.tipoValencia === "favorable" ? 2 : pm.tipoValencia === "desfavorable" ? -2 : 0);
+    return score;
   }
-  mesActivo = detectarMesHoy();
+  function scoreToValencia(score) { return score >= 2 ? "favorable" : score <= -2 ? "desfavorable" : "neutra"; }
 
-  function renderMonthTabs() {
-    var hoyMes = detectarMesHoy();
+  function renderMonthGrid() {
+    var animal = currentAnimal();
     var html = "";
     DATA.meses2026.forEach(function (m) {
-      var d = new Date(m.ini + "T00:00:00");
-      var mesLabel = d.toLocaleDateString('es-AR', { month: 'short' }).replace('.', '');
-      html += '<div class="month-tab' + (m.n === mesActivo ? ' active' : '') + (m.n === hoyMes ? ' today' : '') + '" data-mes="' + m.n + '"><b>' + m.animal + '</b>' + mesLabel + '</div>';
+      var score = mesScoreParaAnimal(m.n, animal);
+      var v = scoreToValencia(score);
+      var isToday = m.n === HOY_MES;
+      html += '<button class="month-tile' + (isToday ? ' today-tile' : '') + '" style="--tile-el:' + ELEMENT_VAR[m.elemento] + '" data-mes="' + m.n + '">' +
+        '<div class="mnum">MES ' + String(m.n).padStart(2, '0') + '</div>' +
+        '<div class="manimal">' + m.animal + '</div>' +
+        '<div class="mel">' + m.elemento + ' ' + m.polaridad + '</div>' +
+        '<div class="mdot-row"><span class="mdot ' + v + '"></span><span class="mdot-label">' + v + '</span></div>' +
+        '</button>';
     });
-    document.getElementById('monthTabs').innerHTML = html;
-    document.getElementById('monthTabs').querySelectorAll('.month-tab').forEach(function (el) {
-      el.addEventListener('click', function () { mesActivo = +el.dataset.mes; renderMonthTabs(); renderMonthPanel(); });
+    document.getElementById('monthGrid').innerHTML = html;
+    document.getElementById('monthGrid').querySelectorAll('.month-tile').forEach(function (el) {
+      el.addEventListener('click', function () { openMonth(+el.dataset.mes); });
     });
   }
 
-  function fmtFecha(s) {
-    var d = new Date(s + "T00:00:00");
-    return d.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
-  }
+  function fmtFecha(s) { var d = new Date(s + "T00:00:00"); return d.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' }); }
 
   function recomendacion(score, animal, mes) {
-    var todasTareas = [];
-    objetivos.forEach(function (obj, oi) {
-      obj.areas.forEach(function (area, ai) {
-        area.tareas.forEach(function (t, ti) {
-          if (t.trim()) todasTareas.push({ id: 'O' + (oi + 1) + '-A' + (ai + 1) + '-T' + (ti + 1), obj: obj.titulo, texto: t });
-        });
-      });
-    });
-    var cls = "neu", verdict = "", texto = "", elegidas = [];
+    var todas = [];
+    objetivos.forEach(function (obj, oi) { obj.areas.forEach(function (area, ai) { area.tareas.forEach(function (t, ti) {
+      if (t.trim()) todas.push({ id: 'O' + (oi + 1) + '-A' + (ai + 1) + '-T' + (ti + 1), texto: t });
+    }); }); });
+    var cls, verdict, texto, elegidas;
     if (score >= 2) {
-      cls = "pos"; verdict = "Mes favorable — buen momento para avanzar";
-      texto = "La energía de " + mes.animal + " de " + mes.elemento + " acompaña a tu animal (" + animal + ") este mes. Es un buen momento para impulsar tareas nuevas o que requieran visibilidad, no solo mantenimiento.";
-      elegidas = todasTareas.slice(0, 3);
+      cls = "pos"; verdict = "Mes favorable — avanzar";
+      texto = "La energía de " + mes.animal + " de " + mes.elemento + " acompaña a tu animal (" + animal + "). Buen momento para impulsar tareas nuevas, no solo mantenimiento.";
+      elegidas = todas.slice(0, 3);
     } else if (score <= -2) {
-      cls = "neg"; verdict = "Mes de cuidado — priorizar sostener, no arrancar";
-      texto = "La relación de tu animal con " + mes.animal + " de " + mes.elemento + " trae más estrellas a vigilar que favorables. No es el mejor momento para decisiones grandes o lanzamientos: conviene sostener lo que ya está en marcha y cuidar los detalles operativos.";
-      elegidas = todasTareas.filter(function (t) { return /administra|ordenar|revisar|chequeo|planificar|definir/i.test(t.texto); });
-      if (!elegidas.length) elegidas = todasTareas.slice(0, 1);
+      cls = "neg"; verdict = "Mes de cuidado — sostener";
+      texto = "Hay más estrellas a vigilar que favorables. No es el mejor momento para decisiones grandes: sostené lo que ya está en marcha.";
+      elegidas = todas.filter(function (t) { return /administra|ordenar|revisar|chequeo|planificar|definir/i.test(t.texto); });
+      if (!elegidas.length) elegidas = todas.slice(0, 1);
     } else {
       cls = "neu"; verdict = "Mes neutro — a criterio";
-      texto = "Este mes no trae una energía especialmente marcada para tu animal. El avance depende más de tu propia constancia que del período: es un buen momento parejo para el trabajo de fondo.";
-      elegidas = todasTareas.slice(0, 2);
+      texto = "No hay una energía muy marcada para tu animal este mes: el avance depende más de tu constancia.";
+      elegidas = todas.slice(0, 2);
     }
     return { cls: cls, verdict: verdict, texto: texto, tareas: elegidas };
   }
 
-  function renderMonthPanel() {
-    var mes = DATA.meses2026.find(function (m) { return m.n === mesActivo; });
-    var r = animalDelAnio(document.getElementById('birthdate').value || "1990-07-15");
-    var animal = r.animal;
-    var pm = DATA.presagiosMensuales[mesActivo][animal];
-
-    var favs = pm.estrellas.filter(function (e) { return (DATA.estrellas[e] || {}).val === "favorable"; });
-    var desf = pm.estrellas.filter(function (e) { return (DATA.estrellas[e] || {}).val === "desfavorable"; });
+  function openMonth(mesN) {
+    mesActivo = mesN;
+    var mes = DATA.meses2026.find(function (m) { return m.n === mesN; });
+    var animal = currentAnimal();
+    var pm = DATA.presagiosMensuales[mesN][animal];
+    var favs = pm.estrellas.filter(function (e) { return starValencia(e) === "favorable"; });
+    var desf = pm.estrellas.filter(function (e) { return starValencia(e) === "desfavorable"; });
     var neu = pm.estrellas.length - favs.length - desf.length;
-    var score = favs.length - desf.length + (pm.tipoValencia === "favorable" ? 2 : pm.tipoValencia === "desfavorable" ? -2 : 0);
-
     var total = Math.max(pm.estrellas.length, 1);
-    var meterHtml = '<div class="meter"><div class="m-fav" style="width:' + (favs.length / total * 100) + '%"></div>' +
-      '<div class="m-neu" style="width:' + (neu / total * 100) + '%"></div>' +
-      '<div class="m-desf" style="width:' + (desf.length / total * 100) + '%"></div></div>' +
+    var score = mesScoreParaAnimal(mesN, animal);
+    var meterHtml = '<div class="meter"><div class="m-fav" style="width:' + (favs.length / total * 100) + '%"></div><div class="m-neu" style="width:' + (neu / total * 100) + '%"></div><div class="m-desf" style="width:' + (desf.length / total * 100) + '%"></div></div>' +
       '<div class="meter-label">' + favs.length + ' favorables · ' + neu + ' neutras · ' + desf.length + ' a vigilar</div>';
-
-    var chips = pm.tipo.split(";").map(function (t) {
-      t = t.trim();
-      return '<span class="chip ' + pm.tipoValencia + '">' + t + '</span>';
-    }).join("");
-
     var reco = recomendacion(score, animal, mes);
 
     document.getElementById('monthPanel').innerHTML =
-      '<div class="month-head">' +
-      '<div class="hex-stamp"><span class="k">HEX.</span><span class="v">' + mes.hex + '</span></div>' +
+      '<div class="month-head">' + hexStampHtml(mes.hex) +
       '<div><h3>' + mes.animal + ' de ' + mes.elemento + ' ' + mes.polaridad + '</h3>' +
-      '<div class="dates num">' + fmtFecha(mes.ini) + ' — ' + fmtFecha(mes.fin) + '</div></div></div>' +
-      '<p class="month-tema">“' + mes.tema + '”</p>' +
-      '<div class="rel-panel"><h4>Tu relación este mes (' + animal + ')</h4>' +
-      meterHtml +
-      '<div class="chip-row" style="margin-top:8px;">' + chips + '</div>' +
+      '<div class="dates num">' + fmtFecha(mes.ini) + ' — ' + fmtFecha(mes.fin) + '</div>' +
+      '<div class="dates num" style="margin-top:2px;">Hexagrama ' + mes.hex + ' · ' + mes.hexNombre + '</div></div></div>' +
+      '<p class="month-tema">"' + mes.tema + '"</p>' +
+      '<div class="card"><p class="section-label">Tu relación este mes (' + animal + ')</p>' + meterHtml +
+      '<div class="chip-row" style="margin-top:8px;">' + tipoValenciaChips(pm.tipo, pm.tipoValencia) + '</div>' +
       '<p class="rel-desc">' + tipoDescripcion(pm.tipo) + '</p></div>' +
-      '<div class="stars-panel"><div class="stars-grid">' +
-      '<div><div class="stars-col-title fav">Constructivas (' + favs.length + ')</div>' +
-      (favs.length ? favs.map(starRow).join("") : '<p class="stars-empty">Ninguna este mes.</p>') + '</div>' +
-      '<div><div class="stars-col-title desf">A vigilar (' + desf.length + ')</div>' +
-      (desf.length ? desf.map(starRow).join("") : '<p class="stars-empty">Ninguna este mes.</p>') + '</div>' +
+      '<div class="card stars-panel"><div class="stars-grid">' +
+      '<div><div class="stars-col-title fav">Constructivas (' + favs.length + ')</div>' + (favs.length ? favs.map(starRow).join("") : '<p class="stars-empty">Ninguna.</p>') + '</div>' +
+      '<div><div class="stars-col-title desf">A vigilar (' + desf.length + ')</div>' + (desf.length ? desf.map(starRow).join("") : '<p class="stars-empty">Ninguna.</p>') + '</div>' +
       '</div></div>' +
       '<div class="reco-panel ' + (reco.cls === 'neg' ? 'neg' : reco.cls === 'neu' ? 'neu' : '') + '">' +
-      '<p class="reco-verdict">' + reco.verdict + '</p>' +
-      '<p class="reco-text">' + reco.texto + '</p>' +
-      '<div class="reco-tasks">' + (reco.tareas.length ? reco.tareas.map(function (t) {
-        return '<div class="reco-task"><span class="oid">' + t.id + '</span>' + escapeHtml(t.texto) + '</div>';
-      }).join("") : '<div class="reco-task">Cargá tus objetivos en el Paso 03 para ver tareas sugeridas.</div>') + '</div>' +
-      '<p class="reco-note">Regla borrador: cuenta estrellas favorables vs. a vigilar + tipo de relación. Esta lógica todavía no refleja tu criterio experto — es el siguiente paso a definir con vos.</p>' +
-      '</div>';
+      '<p class="reco-verdict">' + reco.verdict + '</p><p class="reco-text">' + reco.texto + '</p>' +
+      '<div class="reco-tasks">' + (reco.tareas.length ? reco.tareas.map(function (t) { return '<div class="reco-task"><span class="oid">' + t.id + '</span>' + escapeHtml(t.texto) + '</div>'; }).join("") : '<div class="reco-task">Cargá objetivos para ver sugerencias.</div>') + '</div>' +
+      '<p class="reco-note">Regla borrador: cuenta estrellas + tipo de relación. La regla final la definís con Laura.</p></div>';
+
+    showScreen('mes');
   }
 
-  // ---------- Stepper nav ----------
-  document.getElementById('stepper').addEventListener('click', function (e) {
-    var btn = e.target.closest('.step-btn');
-    if (!btn) return;
-    document.getElementById(btn.dataset.target).scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-  function syncStepperActive() {
-    var sections = ['s1', 's2', 's3', 's4'].map(function (id) { return document.getElementById(id); });
-    var btns = document.querySelectorAll('.step-btn');
-    var mid = window.innerHeight / 3;
-    var current = 0;
-    sections.forEach(function (s, i) { if (s.getBoundingClientRect().top < mid) current = i; });
-    btns.forEach(function (b, i) { b.classList.toggle('active', i === current); });
+  // ---------- Modal / notificación simulada ----------
+  function openModal(tag, title, text) {
+    document.getElementById('modalTag').textContent = tag;
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalText').textContent = text;
+    document.getElementById('modalOverlay').classList.add('open');
   }
-  window.addEventListener('scroll', syncStepperActive, { passive: true });
+  function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('modalDismiss').addEventListener('click', closeModal);
+  document.getElementById('modalOverlay').addEventListener('click', function (e) { if (e.target === this) closeModal(); });
+  document.getElementById('modalCta').addEventListener('click', function () { closeModal(); openMonth(HOY_MES); });
+
+  function notificacionDeHoy() {
+    var animal = currentAnimal();
+    var mes = DATA.meses2026.find(function (m) { return m.n === HOY_MES; });
+    var pm = DATA.presagiosMensuales[HOY_MES][animal];
+    var favs = pm.estrellas.filter(function (e) { return starValencia(e) === "favorable"; });
+    var line = favs.length ? ("Tenés " + favs.length + " estrella" + (favs.length > 1 ? "s" : "") + " favorable" + (favs.length > 1 ? "s" : "") + " este mes: " + favs[0] + ".") : "Este mes conviene sostener más que arrancar cosas nuevas.";
+    openModal("Simulación de notificación push", "Tu energía de hoy (" + animal + ")", "Estás en " + mes.animal + " de " + mes.elemento + ". " + line + " Así se vería un aviso mensual en la app real.");
+  }
+  document.getElementById('bellBtn').addEventListener('click', notificacionDeHoy);
 
   // ---------- Init ----------
-  document.getElementById('birthdate').addEventListener('input', renderAnimal);
+  document.getElementById('birthdate').addEventListener('input', function () {
+    renderAnimalResult(); renderHome(); renderAnual(); renderMonthGrid();
+  });
+  renderAnimalResult();
+  renderHome();
+  renderAnual();
   renderObjetivos();
-  renderMonthTabs();
-  renderAnimal();
-  syncStepperActive();
+  renderMonthGrid();
+  showScreen('inicio');
+
+  setTimeout(function () {
+    document.getElementById('bellDot').style.display = 'block';
+    notificacionDeHoy();
+  }, 900);
 })();
 </script>
